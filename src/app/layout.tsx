@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import "./globals.css";
 import { Theme } from "@radix-ui/themes";
+import Layout from "@/components/layout";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Blogify",
@@ -15,7 +16,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <Theme>{children}</Theme>
+        <Theme>
+          <Layout children={children} />
+        </Theme>
       </body>
     </html>
   );
