@@ -1,5 +1,5 @@
-import Logo from "@/components/logo";
-import Navbar from "@/components/navbar";
+import Logo from "@/components/Layout/Logo";
+import Navbar from "@/components/Layout/Navbar";
 
 const Menu = () => {
   return (
