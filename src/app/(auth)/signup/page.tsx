@@ -1,5 +1,5 @@
-import Link from "next/link";
-import SignUpForm from "@/components/SignUpForm/SignUpForm";
+import Link from 'next/link';
+import SignUpForm from '@/components/SignUpForm/SignUpForm';
 
 const SignUp = () => {
   return (
@@ -7,7 +7,10 @@ const SignUp = () => {
       <SignUpForm />
       <div className="text-lg">
         Already have an account?
-        <Link href="/signin" className="font-medium text-blue-500 pl-1">
+        <Link
+          href="/signin"
+          className="font-medium text-blue-500 pl-1"
+        >
           Sign in
         </Link>
       </div>

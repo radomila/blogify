@@ -7,23 +7,29 @@ import { SignUpFormType } from '@/components/SignUpForm/signUpFormType';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { signUpFormSchema } from '@/components/SignUpForm/signUpFormSchema';
 import { register } from '@/services/AuthService';
+import { useOverlayLoading } from '@/hooks/useOverlayLoading';
+import PasswordInputField from '@/components/FormComponents/Controlled/PasswordInputField';
+import { useRouter } from 'next/navigation';
 
 const SignUpForm = () => {
+  const router = useRouter();
+  const { showOverlay, hideOverlay } = useOverlayLoading();
   const { handleSubmit, control, trigger } = useForm<SignUpFormType>({
     resolver: zodResolver(signUpFormSchema),
   });
 
   const handleFormOnSubmit = async ({ password, email }: SignUpFormType) => {
     try {
-      // TODO START LOADING
+      showOverlay();
       await register(email, password);
       // TODO REDIRECT
+      router.push('/');
       console.log('REGISTER SUCCESS');
     } catch (err) {
       // TODO DISPLAY ERROR
       console.error(err);
     } finally {
-      // TODO FINISH LOADING
+      hideOverlay();
       console.log('REGISTER DONE');
     }
   };
@@ -43,17 +49,15 @@ const SignUpForm = () => {
         name="email"
         tooltipText="Enter a valid email address in the format e.g. name@example.com"
       />
-      <FormInputField
+      <PasswordInputField
         label="Password"
-        type="password"
         isRequired
         control={control}
         name="password"
         tooltipText="Password must be between 8–12 characters, containing at least one uppercase letter, number, and special character (@, #, !, etc.)."
       />
-      <FormInputField
+      <PasswordInputField
         label="Confirm Password"
-        type="password"
         isRequired
         control={control}
         name="confirmPassword"

@@ -1,7 +1,7 @@
-import { ChangeEventHandler, FocusEventHandler, Ref } from "react";
+import { ChangeEventHandler, FocusEventHandler, ReactNode, Ref } from 'react';
 
 export interface FormInputProps {
-  type: "email" | "password";
+  type: 'email' | 'password' | 'text';
   placeholder?: string;
   label: string;
   isRequired?: boolean;
@@ -11,4 +11,5 @@ export interface FormInputProps {
   ref?: Ref<HTMLInputElement> | undefined;
   errorMessage?: string | undefined;
   tooltipText: string;
+  endComponent?: ReactNode;
 }

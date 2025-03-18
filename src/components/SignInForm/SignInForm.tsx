@@ -7,23 +7,29 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { SignInFormType } from '@/components/SignInForm/signInFormType';
 import { signInFormSchema } from '@/components/SignInForm/signInFormSchema';
 import { signIn } from '@/services/AuthService';
+import { useOverlayLoading } from '@/hooks/useOverlayLoading';
+import PasswordInputField from '@/components/FormComponents/Controlled/PasswordInputField';
+import { useRouter } from 'next/navigation';
 
 const SignInForm = () => {
+  const router = useRouter();
+  const { showOverlay, hideOverlay } = useOverlayLoading();
   const { handleSubmit, control, trigger } = useForm<SignInFormType>({
     resolver: zodResolver(signInFormSchema),
   });
 
   const handleFormOnSubmit = async ({ password, email }: SignInFormType) => {
     try {
-      // TODO START LOADING
+      showOverlay();
       await signIn(email, password);
       // TODO REDIRECT
+      router.push('/');
       console.log('SIGNIN SUCCESS');
     } catch (err) {
       // TODO DISPLAY ERROR
       console.error(err);
     } finally {
-      // TODO FINISH LOADING
+      hideOverlay();
       console.log('SIGNIN DONE');
     }
   };
@@ -43,9 +49,8 @@ const SignInForm = () => {
         name="email"
         tooltipText="Enter a valid email address in the format e.g. name@example.com"
       />
-      <FormInputField
+      <PasswordInputField
         label="Password"
-        type="password"
         isRequired
         control={control}
         name="password"
