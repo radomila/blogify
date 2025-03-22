@@ -10,6 +10,7 @@ import { register } from '@/services/AuthService';
 import { useOverlayLoading } from '@/hooks/useOverlayLoading';
 import PasswordInputField from '@/components/FormComponents/Controlled/PasswordInputField';
 import { useRouter } from 'next/navigation';
+import Button from '@/components/Components/Button/Button';
 
 const SignUpForm = () => {
   const router = useRouter();
@@ -22,7 +23,6 @@ const SignUpForm = () => {
     try {
       showOverlay();
       await register(email, password);
-      // TODO REDIRECT
       router.push('/');
       console.log('REGISTER SUCCESS');
     } catch (err) {
@@ -64,12 +64,13 @@ const SignUpForm = () => {
         tooltipText="Re-enter the password exactly as in the previous field to confirm it."
       />
       <Form.Submit asChild>
-        <button
+        <Button
           onClick={() => trigger()}
-          className="box-border h-[35px] w-xs text-white text-center bg-blue-500 px-4 py-1 rounded-md tracking-wider cursor-pointer hover:bg-blue-600"
+          variant="form"
+          size="form"
         >
           {textButton.toUpperCase()}
-        </button>
+        </Button>
       </Form.Submit>
     </Form.Root>
   );

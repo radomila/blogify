@@ -1,25 +1,45 @@
-import * as React from "react";
-import { NavigationMenu } from "radix-ui";
-import { HomeIcon, PersonIcon, ArrowRightIcon } from "@radix-ui/react-icons";
+'use client';
+
+import * as React from 'react';
+import { NavigationMenu } from 'radix-ui';
+import { HomeIcon, PersonIcon, ArrowRightIcon } from '@radix-ui/react-icons';
+import { useAuth } from '@/hooks/useAuth';
+import AccountMenu from '@/components/Layout/AccountMenu';
+import Link from 'next/link';
 
 const Navbar = () => {
-  //TODO: Add Link for blog post detail
+  const { user } = useAuth();
+
   return (
     <NavigationMenu.Root>
-      <NavigationMenu.List className="flex items-center gap-14 text-md uppercase font-medium text-gray-800 tracking-wide">
-        <NavigationMenu.Item className="flex items-start gap-4">
-          <HomeIcon className="h-5 w-5" />
-          <NavigationMenu.Link href="/">Home</NavigationMenu.Link>
+      <NavigationMenu.List className="flex items-center gap-14 text-md font-medium tracking-wide">
+        <NavigationMenu.Item>
+          <Link
+            href="/"
+            className="flex items-start gap-3 text-gray-600 transition-colors duration-300 hover:text-blue-500"
+          >
+            <HomeIcon className="h-5 w-5" />
+            Home
+          </Link>
         </NavigationMenu.Item>
-        <NavigationMenu.Item className="flex items-start gap-4">
-          <PersonIcon className="h-5 w-5" />
-          <NavigationMenu.Link href="/about">About</NavigationMenu.Link>
+        <NavigationMenu.Item>
+          <Link
+            href="/about"
+            className="flex items-start gap-3 text-gray-600 transition-colors duration-300 hover:text-blue-500"
+          >
+            {' '}
+            <PersonIcon className="h-5 w-5" />
+            About
+          </Link>
         </NavigationMenu.Item>
-        <NavigationMenu.Item className="flex items-center gap-2 text-white bg-gray-800 px-4 py-2 rounded-3xl">
-          <ArrowRightIcon className="h-5 w-5" />
-          <NavigationMenu.Link href="/signin">Sign In</NavigationMenu.Link>
-        </NavigationMenu.Item>
-        {/*<NavigationMenu.Link href={`/${id}`}>Specific blog post content</NavigationMenu.Link>*/}
+        {user ? (
+          <AccountMenu />
+        ) : (
+          <NavigationMenu.Item className="flex items-center gap-2 text-white bg-blue-500 px-4 py-2 rounded-3xl uppercase">
+            <ArrowRightIcon className="h-5 w-5" />
+            <Link href="/signin">Sign In</Link>
+          </NavigationMenu.Item>
+        )}
       </NavigationMenu.List>
     </NavigationMenu.Root>
   );

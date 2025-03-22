@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import { Theme } from '@radix-ui/themes';
 import MainLayout from '@/components/Layout/MainLayout';
-import { OverlayLoadingProvider } from '@/context/OverlayLoadingContext';
+import { OverlayLoadingProvider } from '@/providers/OverlayLoadingProvider';
 import './globals.css';
+import QueryProvider from '@/providers/QueryProvider';
+import { AuthProvider } from '@/providers/AuthProvider';
 
 export const metadata: Metadata = {
   title: 'Blogify',
@@ -17,11 +19,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <OverlayLoadingProvider>
-          <Theme>
-            <MainLayout>{children}</MainLayout>
-          </Theme>
-        </OverlayLoadingProvider>
+        <AuthProvider>
+          <QueryProvider>
+            <OverlayLoadingProvider>
+              <Theme>
+                <MainLayout>{children}</MainLayout>
+              </Theme>
+            </OverlayLoadingProvider>
+          </QueryProvider>
+        </AuthProvider>
       </body>
     </html>
   );

@@ -1,7 +1,11 @@
 const Logo = () => {
   return (
-    <div>
-      <p className="text-2xl tracking-wider text-gray-800">Blogify</p>
+    <div className="flex items-center gap-3">
+      <img
+        src="/Logo.svg"
+        alt="logo"
+      />
+      <p className="text-xl tracking-wider text-gray-800 font-medium">Blogify</p>
     </div>
   );
 };

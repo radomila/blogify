@@ -10,6 +10,7 @@ import { signIn } from '@/services/AuthService';
 import { useOverlayLoading } from '@/hooks/useOverlayLoading';
 import PasswordInputField from '@/components/FormComponents/Controlled/PasswordInputField';
 import { useRouter } from 'next/navigation';
+import Button from '@/components/Components/Button/Button';
 
 const SignInForm = () => {
   const router = useRouter();
@@ -22,7 +23,6 @@ const SignInForm = () => {
     try {
       showOverlay();
       await signIn(email, password);
-      // TODO REDIRECT
       router.push('/');
       console.log('SIGNIN SUCCESS');
     } catch (err) {
@@ -57,12 +57,13 @@ const SignInForm = () => {
         tooltipText="Password must be between 8–12 characters, containing at least one uppercase letter, number, and special character (@, #, !, etc.)."
       />
       <Form.Submit asChild>
-        <button
+        <Button
           onClick={() => trigger()}
-          className="box-border h-[35px] w-xs text-white text-center bg-blue-500 px-4 py-1 rounded-md tracking-wider cursor-pointer hover:bg-blue-600"
+          variant="form"
+          size="form"
         >
           {textButton.toUpperCase()}
-        </button>
+        </Button>
       </Form.Submit>
     </Form.Root>
   );
