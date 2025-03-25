@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { Form } from "radix-ui";
-import FormInput from "@/components/FormComponents/Uncontrolled/FormInput";
-import { FormInputProps } from "@/components/FormComponents/types";
-import { Control, Controller, FieldValues, Path } from "react-hook-form";
+import { Form } from 'radix-ui';
+import FormInput from '@/components/FormComponents/Uncontrolled/FormInput';
+import { FormInputProps } from '@/components/FormComponents/types';
+import { Control, Controller, FieldValues, Path } from 'react-hook-form';
 
 interface Props<T extends FieldValues> extends FormInputProps {
   control: Control<T>;
@@ -16,16 +16,17 @@ const FormInputField = <T extends FieldValues>(props: Props<T>) => {
     <Controller
       control={control}
       name={name}
-      render={({
-        field: { onChange, onBlur, value, ref },
-        fieldState: { error },
-      }) => (
-        <Form.Field className="flex flex-col gap-2" name={name}>
+      render={({ field: { onChange, onBlur, value, ref }, fieldState: { error } }) => (
+        <Form.Field
+          className="flex flex-col gap-2"
+          name={name}
+          aria-label="Form input field"
+        >
           <FormInput
             {...props}
             onChange={onChange}
             onBlur={onBlur}
-            value={value ?? ""}
+            value={value ?? ''}
             ref={ref}
             errorMessage={error?.message}
           />

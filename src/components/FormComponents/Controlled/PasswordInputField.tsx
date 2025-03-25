@@ -29,6 +29,7 @@ const PasswordInputField = <T extends FieldValues>(props: Props<T>) => {
         <Form.Field
           className="flex flex-col gap-2"
           name={name}
+          aria-label="Password input field"
         >
           <FormInput
             {...props}
@@ -43,8 +44,9 @@ const PasswordInputField = <T extends FieldValues>(props: Props<T>) => {
                 type="button"
                 onClick={handlePasswordVisibility}
                 className="cursor-pointer absolute"
+                role="button"
               >
-                {isPasswordVisible ? <EyeClosedIcon /> : <EyeOpenIcon />}
+                {isPasswordVisible ? <EyeClosedIcon role="img" /> : <EyeOpenIcon role="img" />}
               </button>
             }
           />

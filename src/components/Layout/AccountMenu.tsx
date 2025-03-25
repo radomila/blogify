@@ -15,14 +15,26 @@ const AccountMenu = () => {
   };
 
   return (
-    <Menubar.Root>
+    <Menubar.Root role="menuitem">
       <Menubar.Menu>
         <Menubar.Trigger
           onClick={handleToggleAccountMenu}
           className="flex items-center gap-2 cursor-pointer"
         >
-          <p>{user?.email}</p>
-          {isOpened ? <CaretUpIcon className="h-7 w-7" /> : <CaretDownIcon className="h-7 w-7" />}
+          <p aria-label="User account email address">{user?.email}</p>
+          {isOpened ? (
+            <CaretUpIcon
+              className="h-7 w-7"
+              role="img"
+              aria-label="Caret up icon"
+            />
+          ) : (
+            <CaretDownIcon
+              className="h-7 w-7"
+              role="img"
+              aria-label="Caret down icon"
+            />
+          )}
         </Menubar.Trigger>
         <Menubar.Portal>
           <Menubar.Content className="absolute mt-2 rounded-lg shadow-md border border-gray-200 text-gray-500 bg-white font-medium w-[180px] max-w-[180px] p-4">
@@ -30,6 +42,8 @@ const AccountMenu = () => {
               <button
                 onClick={logout}
                 className="cursor-pointer"
+                role="button"
+                aria-label="Logout"
               >
                 Logout
               </button>

@@ -1,7 +1,7 @@
 import { addDoc, collection, doc, getDoc, getDocs, orderBy, query } from '@firebase/firestore';
 import { firebaseDb } from '@/clients/firebase';
 import { Post } from '@/types/posts';
-import { serverTimestamp } from '@firebase/database';
+import { CreatePostFormType } from '@/components/CreatePostForm/CreatePostFormType';
 
 const COLLECTION_NAME = 'posts';
 
@@ -35,13 +35,13 @@ export const getPost = async (id: string): Promise<Post> => {
   } as Post;
 };
 
-export const createPost = async (post: Omit<Post, 'id' | 'createdAt' | 'updatedAt'>): Promise<Post> => {
+export const createPost = async (post: CreatePostFormType): Promise<string> => {
   const postsRef = collection(firebaseDb, COLLECTION_NAME);
   const docRef = await addDoc(postsRef, {
     ...post,
-    createdAt: serverTimestamp(),
-    updatedAt: serverTimestamp(),
+    createdAt: new Date(),
+    updatedAt: new Date(),
   });
 
-  return await getPost(docRef.id);
+  return docRef.id;
 };

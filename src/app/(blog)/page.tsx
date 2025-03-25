@@ -7,13 +7,13 @@ import { useQuery } from '@tanstack/react-query';
 import { getPosts } from '@/services/PostService';
 import NoPostsFound from '@/components/NoPostsFound';
 import { SelectEnum } from '@/types/SelectEnum';
+import OverlayLoading from '@/components/Components/OverlayLoading/OverlayLoading';
 
 const Home = () => {
   const [searchValue, setSearchValue] = useState<string>('');
   const [sortOrder, setSortOrder] = useState<SelectEnum>(SelectEnum.ASCENDING);
 
-  // TODO: ADD LOADING ADD ERROR
-  const { data: posts } = useQuery({
+  const { data: posts, isLoading } = useQuery({
     queryKey: ['posts'],
     queryFn: () => getPosts(),
   });
@@ -32,6 +32,9 @@ const Home = () => {
     });
   }, [searchValue, posts, sortOrder]);
 
+  if (isLoading) {
+    return <OverlayLoading />;
+  }
   return (
     <>
       <Toolbar

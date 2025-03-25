@@ -10,6 +10,7 @@ const LinkButton = ({ variant, size, children, className, ...props }: LinkButton
   return (
     <Link
       className={cn(buttonVariants({ variant, size, className }))}
+      role="link"
       {...props}
     >
       {children}

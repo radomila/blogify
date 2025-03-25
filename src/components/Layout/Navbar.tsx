@@ -11,7 +11,10 @@ const Navbar = () => {
   const { user } = useAuth();
 
   return (
-    <NavigationMenu.Root>
+    <NavigationMenu.Root
+      role="navigation"
+      aria-label="Navigation"
+    >
       <NavigationMenu.List className="flex items-center gap-14 text-md font-medium tracking-wide">
         <NavigationMenu.Item>
           <Link
@@ -35,9 +38,15 @@ const Navbar = () => {
         {user ? (
           <AccountMenu />
         ) : (
-          <NavigationMenu.Item className="flex items-center gap-2 text-white bg-blue-500 px-4 py-2 rounded-3xl uppercase">
-            <ArrowRightIcon className="h-5 w-5" />
-            <Link href="/signin">Sign In</Link>
+          <NavigationMenu.Item>
+            <Link
+              href="/signin"
+              className="flex items-center gap-2 text-white bg-blue-500 px-4 py-2 rounded-3xl uppercase"
+            >
+              {' '}
+              <ArrowRightIcon className="h-5 w-5" />
+              Sign In
+            </Link>
           </NavigationMenu.Item>
         )}
       </NavigationMenu.List>

@@ -11,6 +11,7 @@ import { useOverlayLoading } from '@/hooks/useOverlayLoading';
 import PasswordInputField from '@/components/FormComponents/Controlled/PasswordInputField';
 import { useRouter } from 'next/navigation';
 import Button from '@/components/Components/Button/Button';
+import { Heading } from '@radix-ui/themes';
 
 const SignInForm = () => {
   const router = useRouter();
@@ -36,36 +37,50 @@ const SignInForm = () => {
 
   const textButton = 'sign in';
   return (
-    <Form.Root
-      className="flex flex-col gap-8 mt-12"
-      onSubmit={handleSubmit(handleFormOnSubmit, (err) => console.error(err))}
+    <div
+      className="text-center mt-20"
+      aria-label="Sign in form"
     >
-      <FormInputField
-        label="Email"
-        type="email"
-        placeholder="name@example.com"
-        isRequired
-        control={control}
-        name="email"
-        tooltipText="Enter a valid email address in the format e.g. name@example.com"
-      />
-      <PasswordInputField
-        label="Password"
-        isRequired
-        control={control}
-        name="password"
-        tooltipText="Password must be between 8–12 characters, containing at least one uppercase letter, number, and special character (@, #, !, etc.)."
-      />
-      <Form.Submit asChild>
-        <Button
-          onClick={() => trigger()}
-          variant="form"
-          size="form"
-        >
-          {textButton.toUpperCase()}
-        </Button>
-      </Form.Submit>
-    </Form.Root>
+      <Heading
+        as="h1"
+        size="7"
+        role="heading"
+        aria-level={1}
+      >
+        Sign In
+      </Heading>
+      <Form.Root
+        className="flex flex-col gap-8 mt-12"
+        onSubmit={handleSubmit(handleFormOnSubmit, (err) => console.error(err))}
+      >
+        <FormInputField
+          label="Email"
+          type="email"
+          placeholder="name@example.com"
+          isRequired
+          control={control}
+          name="email"
+          tooltipText="Enter a valid email address in the format e.g. name@example.com"
+        />
+        <PasswordInputField
+          label="Password"
+          isRequired
+          control={control}
+          name="password"
+          tooltipText="Password must be between 8–12 characters, containing at least one uppercase letter, number, and special character (@, #, !, etc.)."
+        />
+        <Form.Submit asChild>
+          <Button
+            onClick={() => trigger()}
+            variant="form"
+            size="form"
+            aria-label="Sign in button"
+          >
+            {textButton.toUpperCase()}
+          </Button>
+        </Form.Submit>
+      </Form.Root>
+    </div>
   );
 };
 

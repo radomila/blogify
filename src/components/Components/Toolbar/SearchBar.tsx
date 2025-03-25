@@ -14,11 +14,15 @@ const SearchBar = ({ searchValue, setSearchValue }: SearchBarProps) => {
       type="text"
       value={searchValue}
       onChange={(e) => setSearchValue(e.target.value)}
+      role="search"
+      aria-label="Search bar for blog posts"
     >
       <TextField.Slot>
         <MagnifyingGlassIcon
           height="16"
           width="16"
+          role="img"
+          aria-label="Magnifying glass icon"
         />
       </TextField.Slot>
     </TextField.Root>

@@ -9,7 +9,11 @@ interface Props {
 
 const PostsList = ({ posts }: Props) => {
   return (
-    <div className="flex flex-wrap justify-center items-center gap-8 mt-20">
+    <div
+      className="flex flex-wrap justify-center items-center gap-8 mt-20"
+      role="group"
+      aria-label="Blog posts list"
+    >
       {posts?.map((post) => {
         return (
           <PostCard

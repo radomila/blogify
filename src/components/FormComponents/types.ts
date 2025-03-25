@@ -12,4 +12,5 @@ export interface FormInputProps {
   errorMessage?: string | undefined;
   tooltipText: string;
   endComponent?: ReactNode;
+  name?: string;
 }

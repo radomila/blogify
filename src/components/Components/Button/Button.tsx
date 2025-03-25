@@ -10,6 +10,7 @@ const Button = ({ variant, size, children, className, ...props }: ButtonProps) =
     <button
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
+      role="button"
     >
       {children}
     </button>

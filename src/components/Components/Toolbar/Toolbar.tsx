@@ -9,7 +9,11 @@ interface Props extends SearchBarProps, SortSelectProps {}
 const Toolbar = ({ searchValue, setSearchValue, sortOrder, setSortOrder }: Props) => {
   const { user } = useAuth();
   return (
-    <div className="flex justify-between items-center mt-20 px-10">
+    <div
+      className="flex justify-between items-center mt-20 px-5"
+      role="group"
+      aria-label="Toolbar for blog posts list"
+    >
       <div className="flex gap-8">
         <SortSelect
           sortOrder={sortOrder}
@@ -26,8 +30,12 @@ const Toolbar = ({ searchValue, setSearchValue, sortOrder, setSortOrder }: Props
           href="/create"
           variant="create"
           size="detail"
+          aria-label="Create post link"
         >
-          <PlusIcon />
+          <PlusIcon
+            role="img"
+            aria-label="Plus icon"
+          />
           Create Post
         </LinkButton>
       )}

@@ -17,10 +17,10 @@ const MainLayout = ({ children }: LayoutProps) => {
   }
 
   return (
-    <>
+    <div role="main">
       <Menu />
       {children}
-    </>
+    </div>
   );
 };
 
