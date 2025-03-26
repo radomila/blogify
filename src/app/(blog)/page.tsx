@@ -7,11 +7,11 @@ import { useQuery } from '@tanstack/react-query';
 import { getPosts } from '@/services/PostService';
 import NoPostsFound from '@/components/NoPostsFound';
 import { SelectEnum } from '@/types/SelectEnum';
-import OverlayLoading from '@/components/Components/OverlayLoading/OverlayLoading';
+import LoadingSpinner from '@/components/Components/Loading/LoadingSpinner';
 
 const Home = () => {
   const [searchValue, setSearchValue] = useState<string>('');
-  const [sortOrder, setSortOrder] = useState<SelectEnum>(SelectEnum.ASCENDING);
+  const [sortOrder, setSortOrder] = useState<SelectEnum>(SelectEnum.DESCENDING);
 
   const { data: posts, isLoading } = useQuery({
     queryKey: ['posts'],
@@ -32,9 +32,6 @@ const Home = () => {
     });
   }, [searchValue, posts, sortOrder]);
 
-  if (isLoading) {
-    return <OverlayLoading />;
-  }
   return (
     <>
       <Toolbar
@@ -43,7 +40,7 @@ const Home = () => {
         sortOrder={sortOrder}
         setSortOrder={setSortOrder}
       />
-      {filteredPosts && filteredPosts.length > 0 ? <PostsList posts={filteredPosts ?? []} /> : <NoPostsFound />}
+      {isLoading ? <LoadingSpinner /> : <>{filteredPosts && filteredPosts?.length > 0 ? <PostsList posts={filteredPosts ?? []} /> : <NoPostsFound />}</>}
     </>
   );
 };

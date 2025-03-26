@@ -1,14 +1,14 @@
 'use client';
 
-import { ReactNode, useState } from 'react';
-import OverlayLoading from '@/components/Components/OverlayLoading/OverlayLoading';
+import { FC, ReactNode, useState } from 'react';
+import OverlayLoading from '@/components/Components/Loading/OverlayLoading';
 import { OverlayLoadingContext } from '@/context/OverlayLoadingContext';
 
 interface OverlayLoadingProviderType {
   children: ReactNode;
 }
 
-export const OverlayLoadingProvider: React.FC<OverlayLoadingProviderType> = ({ children }) => {
+export const OverlayLoadingProvider: FC<OverlayLoadingProviderType> = ({ children }) => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const showOverlay = () => setLoading(true);

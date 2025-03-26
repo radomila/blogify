@@ -1,4 +1,4 @@
-import { addDoc, collection, doc, getDoc, getDocs, orderBy, query } from '@firebase/firestore';
+import { addDoc, collection, doc, getDoc, getDocs, orderBy, query, where } from '@firebase/firestore';
 import { firebaseDb } from '@/clients/firebase';
 import { Post } from '@/types/posts';
 import { CreatePostFormType } from '@/components/CreatePostForm/CreatePostFormType';
@@ -23,7 +23,7 @@ export const getPost = async (id: string): Promise<Post> => {
   const docSnap = await getDoc(docRef);
 
   if (!docSnap.exists()) {
-    throw new Error('Post not found');
+    throw new Error('Post not found.');
   }
 
   const data = docSnap.data();
@@ -37,11 +37,17 @@ export const getPost = async (id: string): Promise<Post> => {
 
 export const createPost = async (post: CreatePostFormType): Promise<string> => {
   const postsRef = collection(firebaseDb, COLLECTION_NAME);
+
+  const uniqueQuery = query(postsRef, where('title', '==', post.title));
+  const duplicatePosts = await getDocs(uniqueQuery);
+  if (!duplicatePosts.empty) {
+    throw new Error('Post with the same title already exists. Please choose a different title.');
+  }
+
   const docRef = await addDoc(postsRef, {
     ...post,
     createdAt: new Date(),
     updatedAt: new Date(),
   });
-
   return docRef.id;
 };

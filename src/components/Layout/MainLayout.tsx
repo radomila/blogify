@@ -3,7 +3,7 @@
 import Menu from '@/components/Layout/Menu';
 import { ReactNode } from 'react';
 import { useAuth } from '@/hooks/useAuth';
-import OverlayLoading from '@/components/Components/OverlayLoading/OverlayLoading';
+import OverlayLoading from '@/components/Components/Loading/OverlayLoading';
 
 interface LayoutProps {
   children: ReactNode;

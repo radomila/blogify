@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { useAuth } from '@/hooks/useAuth';
-import OverlayLoading from '@/components/Components/OverlayLoading/OverlayLoading';
+import OverlayLoading from '@/components/Components/Loading/OverlayLoading';
 import { useRouter } from 'next/navigation';
 
 interface Props {

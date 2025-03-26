@@ -11,6 +11,8 @@ import { useOverlayLoading } from '@/hooks/useOverlayLoading';
 import { useRouter } from 'next/navigation';
 import { createPost } from '@/services/PostService';
 import { Heading } from '@radix-ui/themes';
+import { useState } from 'react';
+import ErrorAlert from '@/components/Components/ErrorAlert/ErrorAlert';
 
 const CreatePostForm = () => {
   const router = useRouter();
@@ -18,23 +20,27 @@ const CreatePostForm = () => {
   const { handleSubmit, control, trigger } = useForm<CreatePostFormType>({
     resolver: zodResolver(createPostFormSchema),
   });
+  const [error, setError] = useState<string | null>(null);
+
   const text = 'create post';
 
   const handleFormOnSubmit = async (post: CreatePostFormType) => {
+    setError(null);
     try {
       showOverlay();
       await createPost(post);
       router.push('/');
     } catch (err) {
-      // TODO DISPLAY ERROR
-      console.error(err);
+      setError(err instanceof Error ? err.message : 'Something went wrong.');
+      console.log(err);
     } finally {
       hideOverlay();
     }
   };
+
   return (
     <div
-      className="text-center mt-10"
+      className="text-center mt-10 flex flex-col items-center justify-center"
       aria-label="Create post form"
     >
       <Heading
@@ -45,8 +51,15 @@ const CreatePostForm = () => {
       >
         Create Post
       </Heading>
+      {error && (
+        <ErrorAlert
+          error={error}
+          showCloseButton={true}
+          showHomeButton={true}
+        />
+      )}
       <Form.Root
-        className="flex flex-col gap-8 mt-12"
+        className="flex flex-col gap-8 mt-12 w-fit"
         onSubmit={handleSubmit(handleFormOnSubmit, (err) => console.error(err))}
       >
         <FormInputField

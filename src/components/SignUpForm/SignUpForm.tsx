@@ -12,6 +12,8 @@ import PasswordInputField from '@/components/FormComponents/Controlled/PasswordI
 import { useRouter } from 'next/navigation';
 import Button from '@/components/Components/Button/Button';
 import { Heading } from '@radix-ui/themes';
+import { useState } from 'react';
+import ErrorAlert from '@/components/Components/ErrorAlert/ErrorAlert';
 
 const SignUpForm = () => {
   const router = useRouter();
@@ -19,19 +21,19 @@ const SignUpForm = () => {
   const { handleSubmit, control, trigger } = useForm<SignUpFormType>({
     resolver: zodResolver(signUpFormSchema),
   });
+  const [error, setError] = useState<string | null>(null);
 
   const handleFormOnSubmit = async ({ password, email }: SignUpFormType) => {
+    setError(null);
     try {
       showOverlay();
       await register(email, password);
       router.push('/');
-      console.log('REGISTER SUCCESS');
     } catch (err) {
-      // TODO DISPLAY ERROR
-      console.error(err);
+      setError(err instanceof Error ? err.message : 'Something went wrong.');
+      console.log(err);
     } finally {
       hideOverlay();
-      console.log('REGISTER DONE');
     }
   };
 
@@ -49,6 +51,13 @@ const SignUpForm = () => {
       >
         Sign Up
       </Heading>
+      {error && (
+        <ErrorAlert
+          error={error}
+          showCloseButton={true}
+          showHomeButton={true}
+        />
+      )}
       <Form.Root
         className="flex flex-col gap-8 mt-12"
         onSubmit={handleSubmit(handleFormOnSubmit, (err) => console.error(err))}
