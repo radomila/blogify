@@ -1,17 +1,24 @@
 import { Text } from '@radix-ui/themes';
 import { Post } from '@/types/posts';
 import LinkButton from '@/components/Components/Button/LinkButton';
+import Button from '@/components/Components/Button/Button';
+import { useAuth } from '@/hooks/useAuth';
 
 interface Props {
   post: Post;
+  onDeleteBtnClick: () => void;
 }
 
-const PostCard = ({ post }: Props) => {
-  const date = new Date(post.createdAt!);
-  const month = date.toLocaleString('en-EN', { month: 'short' });
-  const day = date.toLocaleString('en-EN', { day: '2-digit' });
-  const year = date.toLocaleString('en-EN', { year: 'numeric' });
-  const createdAtDate = `${month} ${day} ${year}`;
+const PostCard = ({ post, onDeleteBtnClick }: Props) => {
+  const { user } = useAuth();
+
+  // const date = new Date(post.createdAt!);
+  // const month = date.toLocaleString('en-EN', { month: 'short' });
+  // const day = date.toLocaleString('en-EN', { day: '2-digit' });
+  // const year = date.toLocaleString('en-EN', { year: 'numeric' });
+  // const createdAtDate = `${month} ${day} ${year}`;
+
+  const isAuthor = user?.uid === post?.userId;
 
   return (
     <div
@@ -34,6 +41,7 @@ const PostCard = ({ post }: Props) => {
         >
           {post.title}
         </Text>
+
         <Text
           as="p"
           size="2"
@@ -44,12 +52,6 @@ const PostCard = ({ post }: Props) => {
         </Text>
       </div>
       <div className="flex justify-between items-center mt-4 p-3">
-        <div
-          className="font-medium text-gray-500"
-          aria-label="Created at date"
-        >
-          {createdAtDate}
-        </div>
         <LinkButton
           href={`/${post.id}`}
           variant="detail"
@@ -58,6 +60,20 @@ const PostCard = ({ post }: Props) => {
         >
           Read More
         </LinkButton>
+        {user && isAuthor && (
+          <Button
+            onClick={onDeleteBtnClick}
+            variant="default"
+            size="default"
+          >
+            <img
+              src="/delete_icon.png"
+              alt="delete_icon"
+              role="img"
+              aria-label="Delete icon"
+            />
+          </Button>
+        )}
       </div>
     </div>
   );

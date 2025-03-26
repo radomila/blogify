@@ -1,7 +1,8 @@
-import { addDoc, collection, doc, getDoc, getDocs, orderBy, query, where } from '@firebase/firestore';
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, orderBy, query, where } from '@firebase/firestore';
 import { firebaseDb } from '@/clients/firebase';
 import { Post } from '@/types/posts';
 import { CreatePostFormType } from '@/components/CreatePostForm/CreatePostFormType';
+import { getAuth } from 'firebase/auth';
 
 const COLLECTION_NAME = 'posts';
 
@@ -37,6 +38,7 @@ export const getPost = async (id: string): Promise<Post> => {
 
 export const createPost = async (post: CreatePostFormType): Promise<string> => {
   const postsRef = collection(firebaseDb, COLLECTION_NAME);
+  const auth = getAuth();
 
   const uniqueQuery = query(postsRef, where('title', '==', post.title));
   const duplicatePosts = await getDocs(uniqueQuery);
@@ -48,6 +50,12 @@ export const createPost = async (post: CreatePostFormType): Promise<string> => {
     ...post,
     createdAt: new Date(),
     updatedAt: new Date(),
+    userId: auth?.currentUser?.uid,
   });
   return docRef.id;
+};
+
+export const deletePost = async (id: string): Promise<void> => {
+  const postRef = doc(firebaseDb, COLLECTION_NAME, id);
+  await deleteDoc(postRef);
 };
