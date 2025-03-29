@@ -1,13 +1,13 @@
 'use client';
 
-import CreatePostForm from '@/components/CreatePostForm/CreatePostForm';
+import CreateEditPostForm from '@/components/Forms/CreatePostForm/CreateEditPostForm';
 import ProtectedRoute from '@/components/Components/ProtectedRoute';
 
 const CreatePost = () => {
   return (
     <ProtectedRoute>
       <div className="flex justify-center gap-8">
-        <CreatePostForm />
+        <CreateEditPostForm />
       </div>
     </ProtectedRoute>
   );

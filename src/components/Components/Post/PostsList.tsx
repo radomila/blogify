@@ -2,7 +2,7 @@
 
 import { Post } from '@/types/posts';
 import PostCard from '@/components/Components/Post/PostCard';
-import DeletePostDialog from '@/components/Components/AlertDialog/DeletePostDialog';
+import DeletePostDialog from '@/components/Components/DeletePostDialog/DeletePostDialog';
 import { useState } from 'react';
 
 interface Props {

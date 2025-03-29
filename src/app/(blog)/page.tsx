@@ -13,7 +13,7 @@ const Home = () => {
   const [searchValue, setSearchValue] = useState<string>('');
   const [sortOrder, setSortOrder] = useState<SelectEnum>(SelectEnum.DESCENDING);
 
-  const { data: posts, isLoading } = useQuery({
+  const { data: posts, isFetching } = useQuery({
     queryKey: ['posts'],
     queryFn: () => getPosts(),
   });
@@ -40,7 +40,7 @@ const Home = () => {
         sortOrder={sortOrder}
         setSortOrder={setSortOrder}
       />
-      {isLoading ? <LoadingSpinner /> : <>{filteredPosts && filteredPosts?.length > 0 ? <PostsList posts={filteredPosts ?? []} /> : <NoPostsFound />}</>}
+      {isFetching ? <LoadingSpinner /> : <>{filteredPosts && filteredPosts?.length > 0 ? <PostsList posts={filteredPosts ?? []} /> : <NoPostsFound />}</>}
     </>
   );
 };

@@ -3,6 +3,7 @@ import { Post } from '@/types/posts';
 import LinkButton from '@/components/Components/Button/LinkButton';
 import Button from '@/components/Components/Button/Button';
 import { useAuth } from '@/hooks/useAuth';
+import DOMPurify from 'dompurify';
 
 interface Props {
   post: Post;
@@ -18,7 +19,22 @@ const PostCard = ({ post, onDeleteBtnClick }: Props) => {
   // const year = date.toLocaleString('en-EN', { year: 'numeric' });
   // const createdAtDate = `${month} ${day} ${year}`;
 
+  const cleanPostText = DOMPurify.sanitize(post?.text ?? '', { USE_PROFILES: { html: false } });
   const isAuthor = user?.uid === post?.userId;
+
+  const getFirstImageTag = () => {
+    const cleanHtml = DOMPurify.sanitize(post?.text);
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(cleanHtml, 'text/html');
+    const imgTag = doc.querySelector('img');
+    if (imgTag) {
+      imgTag.removeAttribute('width');
+      imgTag.removeAttribute('height');
+      return imgTag.outerHTML;
+    }
+    return null;
+  };
+  const firstImageTag = getFirstImageTag();
 
   return (
     <div
@@ -26,11 +42,18 @@ const PostCard = ({ post, onDeleteBtnClick }: Props) => {
       role="article"
       aria-label="Blog post card"
     >
-      <div
-        className="w-full h-[150px] bg-gray-300 mb-4"
-        role="img"
-        aria-label="Blog post preview image"
-      ></div>
+      {firstImageTag ? (
+        <div
+          className="w-full h-[150px] overflow-hidden"
+          dangerouslySetInnerHTML={{ __html: firstImageTag }}
+        />
+      ) : (
+        <div
+          className="w-full h-[150px] bg-gray-300 mb-4"
+          role="img"
+          aria-label="Blog post preview image placeholder"
+        ></div>
+      )}
       <div className="flex flex-col flex-grow p-3">
         <Text
           as="p"
@@ -48,7 +71,7 @@ const PostCard = ({ post, onDeleteBtnClick }: Props) => {
           className="line-clamp-4"
           aria-label="Blog post text"
         >
-          {post.text}
+          {cleanPostText}
         </Text>
       </div>
       <div className="flex justify-between items-center mt-4 p-3">
@@ -61,18 +84,34 @@ const PostCard = ({ post, onDeleteBtnClick }: Props) => {
           Read More
         </LinkButton>
         {user && isAuthor && (
-          <Button
-            onClick={onDeleteBtnClick}
-            variant="default"
-            size="default"
-          >
-            <img
-              src="/delete_icon.png"
-              alt="delete_icon"
-              role="img"
-              aria-label="Delete icon"
-            />
-          </Button>
+          <div className="flex flex-row gap-6">
+            <LinkButton
+              href={`/edit/${post.id}`}
+              variant="default"
+              size="default"
+            >
+              <img
+                src="/pencil_icon.svg"
+                alt="pencil_icon"
+                role="img"
+                className="w-6 h-8"
+                aria-label="Pencil icon"
+              />
+            </LinkButton>
+            <Button
+              onClick={onDeleteBtnClick}
+              variant="default"
+              size="default"
+            >
+              <img
+                src="/delete_icon.svg"
+                alt="delete_icon"
+                role="img"
+                className="w-6 h-8"
+                aria-label="Delete icon"
+              />
+            </Button>
+          </div>
         )}
       </div>
     </div>

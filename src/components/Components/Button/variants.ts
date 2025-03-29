@@ -9,6 +9,8 @@ export const buttonVariants = cva('flex items-center justify-center gap-1 cursor
       create: 'text-white bg-blue-500 font-medium',
       error: 'text-white bg-[#E84A4A]',
       errorSecondary: 'text-[#E84A4A] bg-white outline-1 outline-[#E84A4A]',
+      upload: 'text-white bg-blue-500',
+      uploadSecondary: 'text-blue-500 bg-white outline-1 outline-blue-500',
     },
     size: {
       default: '',
@@ -16,6 +18,8 @@ export const buttonVariants = cva('flex items-center justify-center gap-1 cursor
       detail: 'px-5 py-2',
       error: 'px-5 py-1 tracking-wider',
       errorSecondary: 'px-5 py-2 tracking-wider',
+      upload: 'px-5 py-1 tracking-wider',
+      uploadSecondary: 'px-5 py-2 tracking-wider',
     },
   },
 });

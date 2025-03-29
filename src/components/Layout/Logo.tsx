@@ -6,7 +6,7 @@ const Logo = () => {
       aria-label="Blogify logo"
     >
       <img
-        src="/Logo.svg"
+        src="/logo.svg"
         alt="logo"
         aria-labelledby="blogify-logo"
       />

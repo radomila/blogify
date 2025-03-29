@@ -2,6 +2,7 @@ import { mauve, violet, red, blackA, gray } from '@radix-ui/colors';
 
 /** @type {import('tailwindcss').Config} */
 const config = {
+  content: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {

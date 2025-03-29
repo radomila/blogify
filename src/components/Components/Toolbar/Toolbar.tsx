@@ -10,7 +10,7 @@ const Toolbar = ({ searchValue, setSearchValue, sortOrder, setSortOrder }: Props
   const { user } = useAuth();
   return (
     <div
-      className="flex justify-between items-center mt-20 px-5"
+      className="flex md:flex-row md:justify-between md:items-center mt-20 px-5 flex-col items-start gap-10"
       role="group"
       aria-label="Toolbar for blog posts list"
     >

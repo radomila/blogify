@@ -13,7 +13,7 @@ const PostDetail = () => {
 
   const {
     data: post,
-    isLoading,
+    isFetching,
     isError,
     error,
   } = useQuery({
@@ -23,7 +23,7 @@ const PostDetail = () => {
 
   const cleanPostText = DOMPurify.sanitize(post?.text ?? '', { USE_PROFILES: { html: true } });
 
-  if (isLoading) return <LoadingSpinner />;
+  if (isFetching) return <LoadingSpinner />;
 
   return (
     <article className="flex flex-col items-center justify-center mt-10 gap-10 w-full max-w-2xl mx-auto">

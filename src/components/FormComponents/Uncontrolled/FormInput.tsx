@@ -21,7 +21,7 @@ const FormInput = ({ type, placeholder, label, isRequired, onChange, onBlur, val
         <Tooltip text={tooltipText} />
       </div>
       <div
-        className="relative w-full max-w-xs"
+        className="relative w-full"
         role="group"
       >
         <Form.Control asChild>
