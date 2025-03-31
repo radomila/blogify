@@ -84,7 +84,7 @@ export const CustomBulletList = BulletList.extend({
         default: 'Bullet List',
       },
       class: {
-        default: 'list-disc ml-2',
+        default: 'list-disc ml-5',
       },
     };
   },
@@ -97,7 +97,7 @@ export const CustomOrderedList = OrderedList.extend({
         default: 'Ordered List',
       },
       class: {
-        default: 'list-decimal ml-2',
+        default: 'list-decimal ml-5',
       },
     };
   },

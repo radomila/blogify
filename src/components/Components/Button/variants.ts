@@ -4,13 +4,13 @@ export const buttonVariants = cva('flex items-center justify-center gap-1 cursor
   variants: {
     variant: {
       default: '',
-      form: 'text-white bg-blue-500 hover:bg-blue-600',
-      detail: 'text-blue-500 bg-white outline-2 font-medium',
-      create: 'text-white bg-blue-500 font-medium',
-      error: 'text-white bg-[#E84A4A]',
-      errorSecondary: 'text-[#E84A4A] bg-white outline-1 outline-[#E84A4A]',
-      upload: 'text-white bg-blue-500',
-      uploadSecondary: 'text-blue-500 bg-white outline-1 outline-blue-500',
+      form: 'text-white bg-blue-600 hover:bg-blue-700',
+      detail: 'text-blue-600 bg-white outline-2 font-medium',
+      create: 'text-white bg-blue-600 font-medium',
+      error: 'text-white bg-[#DE1212]',
+      errorSecondary: 'text-[#DE1212] bg-white outline-1 outline-[#DE1212]',
+      upload: 'text-white bg-blue-600',
+      uploadSecondary: 'text-blue-600 bg-white outline-1 outline-blue-600',
     },
     size: {
       default: '',

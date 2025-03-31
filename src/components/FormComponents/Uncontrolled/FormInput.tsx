@@ -33,7 +33,7 @@ const FormInput = ({ type, placeholder, label, isRequired, onChange, onBlur, val
             onBlur={onBlur}
             value={value}
             ref={ref}
-            className="box-border w-full h-[40px] rounded-md border border-gray-400 bg-white p-2 pr-10 focus:border-blue-500 focus:outline-none"
+            className="box-border w-full h-[40px] rounded-md border border-[#57595B] bg-white p-2 pr-10 focus:border-blue-600 focus:outline-none"
             id={name}
             aria-labelledby={name}
           />

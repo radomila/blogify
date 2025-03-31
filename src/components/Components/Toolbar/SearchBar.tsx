@@ -16,6 +16,7 @@ const SearchBar = ({ searchValue, setSearchValue }: SearchBarProps) => {
       onChange={(e) => setSearchValue(e.target.value)}
       role="search"
       aria-label="Search bar for blog posts"
+      className="border border-[#57595B] focus:border-blue-600 focus:ring-0"
     >
       <TextField.Slot>
         <MagnifyingGlassIcon

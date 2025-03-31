@@ -38,7 +38,7 @@ const PostCard = ({ post, onDeleteBtnClick }: Props) => {
 
   return (
     <div
-      className="flex flex-col p-3 bg-white rounded-lg shadow-md border border-gray-200 transition-all duration-300 hover:shadow-lg hover:scale-105 w-[350px] h-[450px]"
+      className="flex flex-col p-3 bg-white rounded-lg shadow-md shadow-[#57595B] transition-all duration-300 hover:shadow-lg hover:scale-105 w-[350px] h-[450px]"
       role="article"
       aria-label="Blog post card"
     >

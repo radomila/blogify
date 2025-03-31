@@ -37,7 +37,7 @@ const AccountMenu = () => {
           )}
         </Menubar.Trigger>
         <Menubar.Portal>
-          <Menubar.Content className="absolute mt-2 rounded-lg shadow-md border border-gray-200 text-gray-500 bg-white font-medium w-[180px] max-w-[180px] p-4">
+          <Menubar.Content className="absolute mt-2 rounded-lg shadow-md border border-gray-200 bg-white font-medium w-[180px] max-w-[180px] p-4">
             <Menubar.Item>
               <button
                 onClick={logout}

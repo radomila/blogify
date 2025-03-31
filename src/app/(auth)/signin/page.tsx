@@ -13,7 +13,7 @@ const SignIn = () => {
         Does not have an account yet?
         <Link
           href="/signup"
-          className="font-medium text-blue-500 pl-1"
+          className="font-medium text-blue-600 pl-1"
           role="link"
         >
           Sign up

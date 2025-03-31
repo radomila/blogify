@@ -13,7 +13,7 @@ const RichTextEditorToolbar = ({ editor }: Props) => {
   const [uploadImageDialogOpen, setUploadImageDialogOpen] = useState<boolean>(false);
   return (
     <Toolbar.Root
-      className="flex w-full min-w-max rounded-md rounded-br-none rounded-bl-none bg-white p-2.5 border border-b-0 border-gray-400"
+      className="flex w-full min-w-max rounded-md rounded-br-none rounded-bl-none bg-white p-2.5 border border-b-0 border-[#57595B]"
       aria-label="Formatting options"
     >
       <Toolbar.ToggleGroup
@@ -45,7 +45,7 @@ const RichTextEditorToolbar = ({ editor }: Props) => {
           <UnderlineIcon />
         </ToggleItemStyled>
       </Toolbar.ToggleGroup>
-      <Toolbar.Separator className="w-px bg-gray-400 mx-[10px]" />
+      <Toolbar.Separator className="w-px bg-[#57595B] mx-[10px]" />
       <Toolbar.ToggleGroup
         type="single"
         aria-label="Text alignment"
@@ -75,7 +75,7 @@ const RichTextEditorToolbar = ({ editor }: Props) => {
           <TextAlignRightIcon />
         </ToggleItemStyled>
       </Toolbar.ToggleGroup>
-      <Toolbar.Separator className="w-px bg-gray-400 mx-[10px]" />
+      <Toolbar.Separator className="w-px bg-[#57595B] mx-[10px]" />
       <Toolbar.ToggleGroup
         type="single"
         aria-label="Text Format"
@@ -105,7 +105,7 @@ const RichTextEditorToolbar = ({ editor }: Props) => {
           <TextIcon />
         </ToggleItemStyled>
       </Toolbar.ToggleGroup>
-      <Toolbar.Separator className="w-px bg-gray-400 mx-[10px]" />
+      <Toolbar.Separator className="w-px bg-[#57595B] mx-[10px]" />
       <Toolbar.ToggleGroup
         type="single"
         aria-label="Lists"
@@ -127,7 +127,7 @@ const RichTextEditorToolbar = ({ editor }: Props) => {
           <ListBulletIcon className="h-3.5 w-3.5" />
         </ToggleItemStyled>
       </Toolbar.ToggleGroup>
-      <Toolbar.Separator className="w-px bg-gray-400 mx-[10px]" />
+      <Toolbar.Separator className="w-px bg-[#57595B] mx-[10px]" />
       <Toolbar.ToggleGroup
         type="single"
         aria-label="Extras"

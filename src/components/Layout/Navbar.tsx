@@ -19,7 +19,7 @@ const Navbar = () => {
         <NavigationMenu.Item>
           <Link
             href="/"
-            className="flex items-start gap-3 text-gray-600 transition-colors duration-300 hover:text-blue-500"
+            className="flex items-start gap-3 transition-colors duration-300 hover:text-blue-600"
           >
             <HomeIcon className="h-5 w-5" />
             Home
@@ -28,7 +28,7 @@ const Navbar = () => {
         <NavigationMenu.Item>
           <Link
             href="/about"
-            className="flex items-start gap-3 text-gray-600 transition-colors duration-300 hover:text-blue-500"
+            className="flex items-start gap-3 transition-colors duration-300 hover:text-blue-600"
           >
             {' '}
             <PersonIcon className="h-5 w-5" />
@@ -41,7 +41,7 @@ const Navbar = () => {
           <NavigationMenu.Item>
             <Link
               href="/signin"
-              className="flex items-center gap-2 text-white bg-blue-500 px-4 py-2 rounded-3xl uppercase"
+              className="flex items-center gap-2 text-white bg-blue-600 px-4 py-2 rounded-3xl uppercase"
             >
               {' '}
               <ArrowRightIcon className="h-5 w-5" />

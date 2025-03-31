@@ -54,7 +54,7 @@ const FormFileInput = ({ placeholder, label, isRequired, onSuccess, onError, ref
         role="group"
       >
         <Form.Label
-          className="cursor-pointer box-border block w-60 h-[40px] rounded-md border border-gray-400 bg-white p-2 pr-10 focus:border-blue-500 focus:outline-none"
+          className="cursor-pointer box-border block w-60 h-[40px] rounded-md border border-[#57595B] bg-white p-2 pr-10 focus:border-blue-600 focus:outline-none"
           htmlFor={name}
         >
           Upload Image
