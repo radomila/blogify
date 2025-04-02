@@ -12,6 +12,9 @@ Technology stack consists of:
 - __ReactJS__: Used for frontend development, offering a component-based approach to building user interfaces.
 - __Next.js__: A ReactJS framework extending ReactJS functionalities, such as server-side rendering or static-site generation.
 - __Radix UI__: A library providing a scale of customizable components, emphasizing web accessibility.
+- __Tailwind__: CSS framework allowing to create responsive UI.
+- __React Hook Form__: Library enabling to create forms with validation.
+- __React Query__: Library for fetching and updating server state.
 - __TipTap__: Extendable rich-text editor.
 - __Firebase__: Utilized for backend development and offering authorization. 
 - __Vercel__: A cloud platform ensuring seamless deployment.
