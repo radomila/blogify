@@ -39,7 +39,7 @@ const PostCard = ({ post, onDeleteBtnClick }: Props) => {
   const firstImageTag = getFirstImageTag();
 
   return (
-    <div
+    <li
       className="flex flex-col bg-white rounded-sm border-transparent shadow-[#57595B] shadow-sm md:transition-all md:duration-300 md:hover:scale-105 w-[350px] h-[450px]"
       role="listitem"
       aria-label="Blog post preview card"
@@ -53,7 +53,7 @@ const PostCard = ({ post, onDeleteBtnClick }: Props) => {
       ) : (
         <div
           className="w-full h-[170px] bg-[#A6AAAD] mb-1"
-          aria-label="Blog post preview image placeholder"
+          aria-hidden="true"
         ></div>
       )}
       <div className="flex flex-col flex-grow p-6">
@@ -125,7 +125,7 @@ const PostCard = ({ post, onDeleteBtnClick }: Props) => {
           </div>
         )}
       </div>
-    </div>
+    </li>
   );
 };
 

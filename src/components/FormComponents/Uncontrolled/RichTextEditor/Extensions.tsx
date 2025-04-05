@@ -107,7 +107,7 @@ export const CustomListItem = ListItem.extend({
   addAttributes() {
     return {
       'aria-label': {
-        default: 'Item in a list',
+        default: 'List item',
       },
     };
   },

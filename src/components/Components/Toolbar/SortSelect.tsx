@@ -12,12 +12,8 @@ const SortSelect = ({ sortOrder, setSortOrder }: SortSelectProps) => {
     <Select.Root
       value={sortOrder}
       onValueChange={setSortOrder}
-      aria-label="Select sort order"
     >
-      <Select.Trigger
-        className="inline-flex items-center justify-between border p-1 rounded w-32 border-1 border-[#57595B] text-[#57595B] bg-white"
-        aria-activedescendant={SelectEnum.DESCENDING}
-      >
+      <Select.Trigger className="inline-flex items-center justify-between border p-1 rounded w-32 border-1 border-[#57595B] text-[#57595B] bg-white">
         <Select.Value placeholder="Sort by" />
         <Select.Icon className="ml-2">
           <ChevronDownIcon
@@ -28,20 +24,17 @@ const SortSelect = ({ sortOrder, setSortOrder }: SortSelectProps) => {
       </Select.Trigger>
 
       <Select.Portal>
-        <Select.Content
-          className="border border-[#57595B] rounded shadow bg-white text-gray-500"
-          aria-label="Sorting options"
-        >
+        <Select.Content className="border border-[#57595B] rounded shadow bg-white text-gray-500">
           <Select.Viewport className="p-2">
             <Select.Item
-              id={SelectEnum.DESCENDING}
+              id="desc"
               value={SelectEnum.DESCENDING}
               className="flex items-center gap-2 p-2 cursor-pointer hover:bg-gray-100 rounded"
             >
               <Select.ItemText aria-label="Descending">Desc</Select.ItemText>
             </Select.Item>
             <Select.Item
-              id={SelectEnum.ASCENDING}
+              id="asc"
               value={SelectEnum.ASCENDING}
               className="flex items-center gap-2 p-2 cursor-pointer hover:bg-gray-100 rounded"
             >

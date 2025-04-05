@@ -22,7 +22,7 @@ const AccountMenu = () => {
           onClick={handleToggleAccountMenu}
           className="hidden lg:flex items-center gap-2 cursor-pointer"
         >
-          <p aria-label="User account email address">{user?.email}</p>
+          <p>{user?.email}</p>
           {isOpened ? (
             <CaretUpIcon
               className="h-7 w-7"

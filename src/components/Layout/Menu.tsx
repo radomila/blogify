@@ -12,10 +12,9 @@ const Menu = () => {
   };
 
   return (
-    <div
+    <header
       className="flex justify-between items-center lg:px-15 py-6 bg-[#ffffff] shadow-md shadow-[#A6AAAD] px-5 h-[100px]"
-      role="menubar"
-      aria-label="Menu"
+      role="banner"
     >
       <Link
         href="/"
@@ -42,7 +41,7 @@ const Menu = () => {
           setIsNavigationMenuOpen={setIsNavigationMenuOpen}
         />
       </div>
-    </div>
+    </header>
   );
 };
 

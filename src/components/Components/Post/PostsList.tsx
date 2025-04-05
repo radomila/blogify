@@ -14,7 +14,7 @@ const PostsList = ({ posts }: Props) => {
 
   return (
     <>
-      <div
+      <ul
         className="flex flex-wrap justify-between items-center gap-10 md:gap-12 xl:gap-10"
         role="list"
         aria-label="Blog posts list"
@@ -28,7 +28,7 @@ const PostsList = ({ posts }: Props) => {
             />
           );
         })}
-      </div>
+      </ul>
       <DeletePostDialog
         id={deletePost.post?.id ?? ''}
         open={deletePost.open}

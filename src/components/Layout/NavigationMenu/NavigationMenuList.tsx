@@ -28,13 +28,13 @@ const NavigationMenuList = ({ setIsNavigationMenuOpen }: Props) => {
         'lg:flex-row lg:items-center lg:p-0',
       )}
     >
-      <div className="flex lg:flex-row flex-col lg:items-center items-start gap-10">
-        <p
-          className="lg:hidden"
-          aria-label="User account email address"
-        >
-          {user?.email}
-        </p>
+      <p
+        className="lg:hidden"
+        aria-label="User account email address"
+      >
+        {user?.email}
+      </p>
+      <ul className="flex lg:flex-row flex-col lg:items-center items-start gap-10">
         <RadixNavigationMenu.Item>
           <Link
             href="/"
@@ -56,21 +56,21 @@ const NavigationMenuList = ({ setIsNavigationMenuOpen }: Props) => {
             About
           </Link>
         </RadixNavigationMenu.Item>
-        {user && (
-          <Button
-            onClick={logout}
-            className="lg:hidden"
-            aria-label="Logout"
-          >
-            Logout
-          </Button>
-        )}
-      </div>
+      </ul>
+      {user && (
+        <Button
+          onClick={logout}
+          className="lg:hidden"
+          aria-label="Logout"
+        >
+          Logout
+        </Button>
+      )}
 
       {user ? (
         <AccountMenu />
       ) : (
-        <div className="flex lg:flex-row flex-col items-center gap-4 py-1">
+        <ul className="flex lg:flex-row flex-col items-center gap-4 py-1">
           <RadixNavigationMenu.Item>
             <Link
               href="/signup"
@@ -89,7 +89,7 @@ const NavigationMenuList = ({ setIsNavigationMenuOpen }: Props) => {
               Sign in
             </Link>
           </RadixNavigationMenu.Item>
-        </div>
+        </ul>
       )}
     </RadixNavigationMenu.List>
   );

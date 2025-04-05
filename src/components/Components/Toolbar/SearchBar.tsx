@@ -14,7 +14,7 @@ const SearchBar = ({ searchValue, setSearchValue }: SearchBarProps) => {
       type="text"
       value={searchValue}
       onChange={(e) => setSearchValue(e.target.value)}
-      role="search"
+      role="textbox"
       aria-label="Blog posts search bar"
       className="focus:border-[#0045DB]"
     >
