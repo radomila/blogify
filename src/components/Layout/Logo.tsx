@@ -8,7 +8,6 @@ const Logo = () => {
       <img
         src="/logo.svg"
         alt="Blogify logo"
-        aria-labelledby="blogify-logo"
         className="w-15 h-15"
       />
       <p

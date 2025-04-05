@@ -24,11 +24,11 @@ const NavigationMenu = ({ isNavigationMenuOpen, setIsNavigationMenuOpen }: Props
       <Button
         onClick={() => setIsNavigationMenuOpen(false)}
         className="absolute top-10 right-5 lg:hidden"
-        aria-label="Close menu button"
+        aria-label="Close menu"
       >
         <img
           src="/close_public.svg"
-          alt="Close menu icon"
+          alt=""
           className="w-6 cursor-pointer lg:hidden"
         />
       </Button>

@@ -97,7 +97,7 @@ const CreateEditPostForm = ({ editPostData }: Props) => {
           variant="form"
           className="w-full"
           size="form"
-          aria-label={editPostData ? 'Edit post button' : 'Create post button'}
+          aria-label={editPostData ? 'Edit post' : 'Create post'}
         >
           {editPostData ? editPostBtn : createPostBtn}
         </Button>

@@ -18,10 +18,7 @@ const MainLayout = ({ children }: LayoutProps) => {
   }
 
   return (
-    <div
-      role="main"
-      className="min-h-screen bg-background"
-    >
+    <div className="min-h-screen bg-background">
       <Menu />
       <div className="flex-grow">{children}</div>
     </div>

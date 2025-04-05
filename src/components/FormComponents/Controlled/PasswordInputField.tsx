@@ -6,6 +6,7 @@ import { FormInputProps } from '@/components/FormComponents/types';
 import { Control, Controller, FieldValues, Path } from 'react-hook-form';
 import { useState } from 'react';
 import { EyeClosedIcon, EyeOpenIcon } from '@radix-ui/react-icons';
+import Button from '@/components/Components/Button/Button';
 
 interface Props<T extends FieldValues> extends Omit<FormInputProps, 'type'> {
   control: Control<T>;
@@ -40,14 +41,15 @@ const PasswordInputField = <T extends FieldValues>(props: Props<T>) => {
             errorMessage={error?.message}
             type={inputType}
             endComponent={
-              <button
-                type="button"
+              <Button
+                variant="default"
+                size="default"
                 onClick={handlePasswordVisibility}
-                className="cursor-pointer absolute"
-                role="button"
+                className="absolute"
+                aria-label={isPasswordVisible ? 'Hide password' : 'Show password'}
               >
                 {isPasswordVisible ? <EyeClosedIcon role="img" /> : <EyeOpenIcon role="img" />}
-              </button>
+              </Button>
             }
           />
         </Form.Field>

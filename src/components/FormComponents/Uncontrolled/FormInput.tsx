@@ -41,8 +41,7 @@ const FormInput = ({ type, placeholder, label, isRequired, onChange, onBlur, val
         {endComponent && (
           <div
             className="absolute right-7 top-1/3"
-            role="img"
-            aria-label="Hide/show password icon"
+            aria-label="Hide/show password"
           >
             {endComponent}
           </div>

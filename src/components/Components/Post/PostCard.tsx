@@ -48,13 +48,11 @@ const PostCard = ({ post, onDeleteBtnClick }: Props) => {
         <div
           className="w-full h-[170px] overflow-hidden mb-1"
           dangerouslySetInnerHTML={{ __html: firstImageTag }}
-          role="img"
           aria-label="Blog post preview image"
         />
       ) : (
         <div
           className="w-full h-[170px] bg-[#A6AAAD] mb-1"
-          role="img"
           aria-label="Blog post preview image placeholder"
         ></div>
       )}
@@ -102,10 +100,11 @@ const PostCard = ({ post, onDeleteBtnClick }: Props) => {
               href={`/edit/${post.id}`}
               variant="default"
               size="default"
+              aria-label="Update blog post"
             >
               <img
                 src="/pencil_icon.svg"
-                alt="Update blog post"
+                alt=""
                 role="img"
                 className="w-6 h-8"
               />
@@ -114,10 +113,11 @@ const PostCard = ({ post, onDeleteBtnClick }: Props) => {
               onClick={onDeleteBtnClick}
               variant="default"
               size="default"
+              aria-label="Delete blog post"
             >
               <img
                 src="/delete_icon.svg"
-                alt="Delete blog post"
+                alt=""
                 role="img"
                 className="w-6 h-8"
               />

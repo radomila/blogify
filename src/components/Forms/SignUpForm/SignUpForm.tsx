@@ -90,7 +90,7 @@ const SignUpForm = () => {
             onClick={() => trigger()}
             variant="form"
             size="form"
-            aria-label="Sign up button"
+            aria-label={textButton}
           >
             {textButton}
           </Button>

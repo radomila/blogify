@@ -41,7 +41,7 @@ const ErrorAlert = ({ error, showCloseButton, showHomeButton }: ErrorAlertType) 
               href="/"
               variant="errorSecondary"
               size="errorSecondary"
-              aria-label="Home button"
+              aria-label="Home"
             >
               Home
             </LinkButton>
@@ -51,7 +51,7 @@ const ErrorAlert = ({ error, showCloseButton, showHomeButton }: ErrorAlertType) 
               onClick={handleCloseErrorAlert}
               variant="error"
               size="error"
-              aria-label="Close button"
+              aria-label="Close"
             >
               Close
             </Button>

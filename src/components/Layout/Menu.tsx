@@ -28,10 +28,11 @@ const Menu = () => {
           variant="default"
           size="default"
           onClick={onNavigationMenuButtonClick}
+          aria-label="Menu"
         >
           <img
             src="/hamburger_menu.svg"
-            alt="Hamburger menu icon"
+            alt=""
             className="w-8 cursor-pointer lg:hidden"
           />
         </Button>

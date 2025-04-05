@@ -44,7 +44,7 @@ const DeletePostDialog = ({ open, setOpen, onSubmitCallback }: Props) => {
                 onClick={() => setOpen(false)}
                 variant="uploadSecondary"
                 size="uploadSecondary"
-                aria-label="Cancel button"
+                aria-label="Cancel"
               >
                 Cancel
               </Button>
@@ -53,7 +53,7 @@ const DeletePostDialog = ({ open, setOpen, onSubmitCallback }: Props) => {
                 size="upload"
                 type="submit"
                 onClick={() => trigger()}
-                aria-label="Upload image button"
+                aria-label="Upload image"
               >
                 Upload
               </Button>

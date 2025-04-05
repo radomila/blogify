@@ -5,6 +5,7 @@ import AccountMenu from '@/components/Layout/AccountMenu';
 import * as React from 'react';
 import { useAuth } from '@/hooks/useAuth';
 import { clsx } from 'clsx';
+import Button from '@/components/Components/Button/Button';
 
 interface Props {
   setIsNavigationMenuOpen: (isOpen: boolean) => void;
@@ -56,14 +57,13 @@ const NavigationMenuList = ({ setIsNavigationMenuOpen }: Props) => {
           </Link>
         </RadixNavigationMenu.Item>
         {user && (
-          <button
+          <Button
             onClick={logout}
-            className="lg:hidden cursor-pointer"
-            role="button"
+            className="lg:hidden"
             aria-label="Logout"
           >
             Logout
-          </button>
+          </Button>
         )}
       </div>
 

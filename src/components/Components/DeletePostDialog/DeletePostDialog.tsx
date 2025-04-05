@@ -47,7 +47,7 @@ const DeletePostDialog = ({ id, open, setOpen }: Props) => {
               size="error"
               aria-label="Delete post"
             >
-              Delete Post
+              Delete post
             </Button>
           </div>
         </RadixAlertDialog.Content>

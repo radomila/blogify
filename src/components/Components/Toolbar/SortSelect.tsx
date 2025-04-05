@@ -16,7 +16,7 @@ const SortSelect = ({ sortOrder, setSortOrder }: SortSelectProps) => {
     >
       <Select.Trigger
         className="inline-flex items-center justify-between border p-1 rounded w-32 border-1 border-[#57595B] text-[#57595B] bg-white"
-        aria-controls="sort-options"
+        aria-activedescendant={SelectEnum.DESCENDING}
       >
         <Select.Value placeholder="Sort by" />
         <Select.Icon className="ml-2">
@@ -34,12 +34,14 @@ const SortSelect = ({ sortOrder, setSortOrder }: SortSelectProps) => {
         >
           <Select.Viewport className="p-2">
             <Select.Item
+              id={SelectEnum.DESCENDING}
               value={SelectEnum.DESCENDING}
               className="flex items-center gap-2 p-2 cursor-pointer hover:bg-gray-100 rounded"
             >
               <Select.ItemText aria-label="Descending">Desc</Select.ItemText>
             </Select.Item>
             <Select.Item
+              id={SelectEnum.ASCENDING}
               value={SelectEnum.ASCENDING}
               className="flex items-center gap-2 p-2 cursor-pointer hover:bg-gray-100 rounded"
             >

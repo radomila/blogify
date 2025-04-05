@@ -1,22 +1,21 @@
 import { Tooltip as RadixTooltip } from 'radix-ui';
 import { QuestionMarkIcon } from '@radix-ui/react-icons';
 import { TooltipType } from '@/components/Components/Tooltip/tooltipType';
+import Button from '@/components/Components/Button/Button';
 
 const Tooltip = ({ text }: TooltipType) => {
   return (
     <RadixTooltip.Provider>
       <RadixTooltip.Root>
         <RadixTooltip.Trigger asChild>
-          <button
+          <Button
+            variant="default"
+            size="default"
             className="inline-flex size-[30px] items-center justify-center rounded-full bg-[#F5F7FF] text-[#0045DB] outline-2 outline-[#0045DB] cursor-pointer"
-            role="button"
-            aria-label="Tooltip button"
+            aria-label="Tooltip"
           >
-            <QuestionMarkIcon
-              role="img"
-              aria-label="Tooltip question mark icon"
-            />
-          </button>
+            <QuestionMarkIcon role="img" />
+          </Button>
         </RadixTooltip.Trigger>
         <RadixTooltip.Portal>
           <RadixTooltip.Content

@@ -5,6 +5,7 @@ import * as React from 'react';
 import { Menubar } from 'radix-ui';
 import { CaretDownIcon, CaretUpIcon } from '@radix-ui/react-icons';
 import { useState } from 'react';
+import Button from '@/components/Components/Button/Button';
 
 const AccountMenu = () => {
   const { user, logout } = useAuth();
@@ -39,14 +40,14 @@ const AccountMenu = () => {
         <Menubar.Portal>
           <Menubar.Content className="absolute mt-2 rounded-sm shadow-md border border-gray-200 bg-white font-medium w-[180px] max-w-[180px] p-4">
             <Menubar.Item>
-              <button
+              <Button
+                variant="default"
+                size="default"
                 onClick={logout}
-                className="cursor-pointer"
-                role="button"
                 aria-label="Logout"
               >
                 Logout
-              </button>
+              </Button>
             </Menubar.Item>
           </Menubar.Content>
         </Menubar.Portal>
