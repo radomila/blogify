@@ -1,9 +1,8 @@
 @import "tailwindcss";
 @import "@radix-ui/themes/styles.css";
-@config "../../tailwind.config.mjs";
 
 :root {
-  --background: #C7D9F9;
+  --background: #F5F7FF;
   --foreground: #171717;
 }
 
@@ -25,4 +24,11 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
 }

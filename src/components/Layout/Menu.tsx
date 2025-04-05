@@ -1,11 +1,19 @@
+import { useState } from 'react';
 import Logo from '@/components/Layout/Logo';
-import Navbar from '@/components/Layout/Navbar';
+import NavigationMenu from '@/components/Layout/NavigationMenu/NavigationMenu';
 import Link from 'next/link';
+import Button from '@/components/Components/Button/Button';
 
 const Menu = () => {
+  const [isNavigationMenuOpen, setIsNavigationMenuOpen] = useState(false);
+
+  const onNavigationMenuButtonClick = () => {
+    setIsNavigationMenuOpen(!isNavigationMenuOpen);
+  };
+
   return (
     <div
-      className="flex justify-between items-center md:px-15 py-6 shadow-md px-5"
+      className="flex justify-between items-center lg:px-15 py-6 bg-[#ffffff] shadow-md shadow-[#A6AAAD] px-5 h-[100px]"
       role="menubar"
       aria-label="Menu"
     >
@@ -15,7 +23,24 @@ const Menu = () => {
       >
         <Logo />
       </Link>
-      <Navbar />
+      <div>
+        <Button
+          variant="default"
+          size="default"
+          onClick={onNavigationMenuButtonClick}
+        >
+          <img
+            src="/hamburger_menu.svg"
+            alt="Hamburger menu icon"
+            className="w-8 cursor-pointer lg:hidden"
+          />
+        </Button>
+
+        <NavigationMenu
+          isNavigationMenuOpen={isNavigationMenuOpen}
+          setIsNavigationMenuOpen={setIsNavigationMenuOpen}
+        />
+      </div>
     </div>
   );
 };

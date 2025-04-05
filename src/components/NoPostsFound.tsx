@@ -1,6 +1,6 @@
 const NoPostsFound = () => {
   return (
-    <div className="flex col justify-center mt-40">
+    <div className="text-center mt-40">
       <h2
         role="heading"
         aria-level={2}

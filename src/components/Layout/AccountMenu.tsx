@@ -19,7 +19,7 @@ const AccountMenu = () => {
       <Menubar.Menu>
         <Menubar.Trigger
           onClick={handleToggleAccountMenu}
-          className="flex items-center gap-2 cursor-pointer"
+          className="hidden lg:flex items-center gap-2 cursor-pointer"
         >
           <p aria-label="User account email address">{user?.email}</p>
           {isOpened ? (
@@ -37,7 +37,7 @@ const AccountMenu = () => {
           )}
         </Menubar.Trigger>
         <Menubar.Portal>
-          <Menubar.Content className="absolute mt-2 rounded-lg shadow-md border border-gray-200 bg-white font-medium w-[180px] max-w-[180px] p-4">
+          <Menubar.Content className="absolute mt-2 rounded-sm shadow-md border border-gray-200 bg-white font-medium w-[180px] max-w-[180px] p-4">
             <Menubar.Item>
               <button
                 onClick={logout}

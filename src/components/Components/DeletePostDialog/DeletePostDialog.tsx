@@ -37,6 +37,7 @@ const DeletePostDialog = ({ id, open, setOpen }: Props) => {
               onClick={() => setOpen(false)}
               variant="errorSecondary"
               size="errorSecondary"
+              aria-label="Cancel"
             >
               Cancel
             </Button>
@@ -44,6 +45,7 @@ const DeletePostDialog = ({ id, open, setOpen }: Props) => {
               onClick={onDeleteBtnClick}
               variant="error"
               size="error"
+              aria-label="Delete post"
             >
               Delete Post
             </Button>

@@ -39,7 +39,7 @@ const SignInForm = () => {
     }
   };
 
-  const textButton = 'sign in';
+  const textButton = 'Sign in';
   return (
     <div
       className="text-center mt-20"
@@ -87,7 +87,7 @@ const SignInForm = () => {
             size="form"
             aria-label="Sign in button"
           >
-            {textButton.toUpperCase()}
+            {textButton}
           </Button>
         </Form.Submit>
       </Form.Root>

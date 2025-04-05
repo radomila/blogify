@@ -1,8 +1,12 @@
 import { mauve, violet, red, blackA, gray } from '@radix-ui/colors';
 
+// tailwind.config.js
 /** @type {import('tailwindcss').Config} */
-const config = {
-  content: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
+module.exports = {
+  //content: ['./src/**/*.{html,js,jsx,ts,tsx}'],
+  // plugins: {
+  //   '@tailwindcss/postcss': {},
+  // },
   theme: {
     extend: {
       colors: {
@@ -11,6 +15,8 @@ const config = {
         ...red,
         ...blackA,
         ...gray,
+        background: '#F5F7FF',
+        foreground: '#171717',
       },
       keyframes: {
         overlayShow: {
@@ -31,7 +37,4 @@ const config = {
       },
     },
   },
-  plugins: [],
 };
-
-export default config;

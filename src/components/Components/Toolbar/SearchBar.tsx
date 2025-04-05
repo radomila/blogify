@@ -10,20 +10,20 @@ export interface SearchBarProps {
 const SearchBar = ({ searchValue, setSearchValue }: SearchBarProps) => {
   return (
     <TextField.Root
-      placeholder="Search the posts..."
+      placeholder="Search blog posts"
       type="text"
       value={searchValue}
       onChange={(e) => setSearchValue(e.target.value)}
       role="search"
-      aria-label="Search bar for blog posts"
-      className="border border-[#57595B] focus:border-blue-600 focus:ring-0"
+      aria-label="Blog posts search bar"
+      className="focus:border-[#0045DB]"
     >
       <TextField.Slot>
         <MagnifyingGlassIcon
           height="16"
           width="16"
           role="img"
-          aria-label="Magnifying glass icon"
+          aria-label="Blog posts search icon"
         />
       </TextField.Slot>
     </TextField.Root>

@@ -4,6 +4,8 @@ import LinkButton from '@/components/Components/Button/LinkButton';
 import Button from '@/components/Components/Button/Button';
 import { useAuth } from '@/hooks/useAuth';
 import DOMPurify from 'dompurify';
+import { ArrowRightIcon, CalendarIcon } from '@radix-ui/react-icons';
+import * as React from 'react';
 
 interface Props {
   post: Post;
@@ -13,11 +15,11 @@ interface Props {
 const PostCard = ({ post, onDeleteBtnClick }: Props) => {
   const { user } = useAuth();
 
-  // const date = new Date(post.createdAt!);
-  // const month = date.toLocaleString('en-EN', { month: 'short' });
-  // const day = date.toLocaleString('en-EN', { day: '2-digit' });
-  // const year = date.toLocaleString('en-EN', { year: 'numeric' });
-  // const createdAtDate = `${month} ${day} ${year}`;
+  const date = new Date(post.createdAt!);
+  const month = date.toLocaleString('en-EN', { month: 'short' });
+  const day = date.toLocaleString('en-EN', { day: '2-digit' });
+  const year = date.toLocaleString('en-EN', { year: 'numeric' });
+  const createdAtDate = `${month} ${day} ${year}`;
 
   const cleanPostText = DOMPurify.sanitize(post?.text ?? '', { USE_PROFILES: { html: false } });
   const isAuthor = user?.uid === post?.userId;
@@ -38,29 +40,40 @@ const PostCard = ({ post, onDeleteBtnClick }: Props) => {
 
   return (
     <div
-      className="flex flex-col p-3 bg-white rounded-lg shadow-md shadow-[#57595B] transition-all duration-300 hover:shadow-lg hover:scale-105 w-[350px] h-[450px]"
-      role="article"
-      aria-label="Blog post card"
+      className="flex flex-col bg-white rounded-sm border-transparent shadow-[#57595B] shadow-sm md:transition-all md:duration-300 md:hover:scale-105 w-[350px] h-[450px]"
+      role="listitem"
+      aria-label="Blog post preview card"
     >
       {firstImageTag ? (
         <div
-          className="w-full h-[150px] overflow-hidden"
+          className="w-full h-[170px] overflow-hidden mb-1"
           dangerouslySetInnerHTML={{ __html: firstImageTag }}
+          role="img"
+          aria-label="Blog post preview image"
         />
       ) : (
         <div
-          className="w-full h-[150px] bg-gray-300 mb-4"
+          className="w-full h-[170px] bg-[#A6AAAD] mb-1"
           role="img"
           aria-label="Blog post preview image placeholder"
         ></div>
       )}
-      <div className="flex flex-col flex-grow p-3">
+      <div className="flex flex-col flex-grow p-6">
+        <div className="flex items-center gap-2 pb-2 text-[#57595B] font-medium">
+          <CalendarIcon />
+          <Text
+            as="p"
+            size="2"
+          >
+            {createdAtDate}
+          </Text>
+        </div>
+
         <Text
           as="p"
-          size="4"
-          mb="5"
+          size="5"
+          mb="3"
           className="font-medium"
-          aria-label="Blog post title"
         >
           {post.title}
         </Text>
@@ -69,19 +82,19 @@ const PostCard = ({ post, onDeleteBtnClick }: Props) => {
           as="p"
           size="2"
           className="line-clamp-4"
-          aria-label="Blog post text"
         >
           {cleanPostText}
         </Text>
       </div>
-      <div className="flex justify-between items-center mt-4 p-3">
+      <div className="flex justify-between items-center mt-4 p-6">
         <LinkButton
           href={`/${post.id}`}
           variant="detail"
-          size="detail"
+          size="default"
           aria-label="Read more"
         >
-          Read More
+          Read more
+          <ArrowRightIcon className="h-6 w-6 pl-1" />
         </LinkButton>
         {user && isAuthor && (
           <div className="flex flex-row gap-6">
@@ -92,10 +105,9 @@ const PostCard = ({ post, onDeleteBtnClick }: Props) => {
             >
               <img
                 src="/pencil_icon.svg"
-                alt="pencil_icon"
+                alt="Update blog post"
                 role="img"
                 className="w-6 h-8"
-                aria-label="Pencil icon"
               />
             </LinkButton>
             <Button
@@ -105,10 +117,9 @@ const PostCard = ({ post, onDeleteBtnClick }: Props) => {
             >
               <img
                 src="/delete_icon.svg"
-                alt="delete_icon"
+                alt="Delete blog post"
                 role="img"
                 className="w-6 h-8"
-                aria-label="Delete icon"
               />
             </Button>
           </div>

@@ -4,6 +4,7 @@ import Menu from '@/components/Layout/Menu';
 import { ReactNode } from 'react';
 import { useAuth } from '@/hooks/useAuth';
 import OverlayLoading from '@/components/Components/Loading/OverlayLoading';
+import '../../app/globals.css';
 
 interface LayoutProps {
   children: ReactNode;
@@ -17,9 +18,12 @@ const MainLayout = ({ children }: LayoutProps) => {
   }
 
   return (
-    <div role="main">
+    <div
+      role="main"
+      className="min-h-screen bg-background"
+    >
       <Menu />
-      {children}
+      <div className="flex-grow">{children}</div>
     </div>
   );
 };

@@ -39,10 +39,7 @@ const DeletePostDialog = ({ open, setOpen, onSubmitCallback }: Props) => {
             }}
           >
             <UploadImageForm form={form} />
-            <div
-              className="flex gap-5 justify-end"
-              aria-label="Buttons for upload image dialog"
-            >
+            <div className="flex gap-5 justify-end">
               <Button
                 onClick={() => setOpen(false)}
                 variant="uploadSecondary"

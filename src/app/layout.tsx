@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import { Theme } from '@radix-ui/themes';
 import MainLayout from '@/components/Layout/MainLayout';
 import { OverlayLoadingProvider } from '@/providers/OverlayLoadingProvider';
-import './globals.css';
 import QueryProvider from '@/providers/QueryProvider';
 import { AuthProvider } from '@/providers/AuthProvider';
+import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Blogify',
@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className="bg-background">
         <AuthProvider>
           <QueryProvider>
             <OverlayLoadingProvider>

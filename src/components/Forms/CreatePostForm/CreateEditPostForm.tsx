@@ -30,8 +30,8 @@ const CreateEditPostForm = ({ editPostData }: Props) => {
   });
   const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const createPostBtn = 'create post';
-  const editPostBtn = 'edit post';
+  const createPostBtn = 'Create post';
+  const editPostBtn = 'Update post';
 
   const handleFormOnSubmit = async (post: CreateEditPostFormType) => {
     setSubmitError(null);
@@ -99,7 +99,7 @@ const CreateEditPostForm = ({ editPostData }: Props) => {
           size="form"
           aria-label={editPostData ? 'Edit post button' : 'Create post button'}
         >
-          {editPostData ? editPostBtn.toUpperCase() : createPostBtn.toUpperCase()}
+          {editPostData ? editPostBtn : createPostBtn}
         </Button>
       </Form.Root>
     </div>
