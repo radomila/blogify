@@ -27,12 +27,7 @@ const NavigationMenuList = ({ setIsNavigationMenuOpen }: Props) => {
         'lg:flex-row lg:items-center lg:p-0',
       )}
     >
-      <div
-        className="lg:hidden"
-        aria-label="User account email address"
-      >
-        {user?.email}
-      </div>
+      {user && <p className="flex lg:hidden">{user?.email}</p>}
       <ul className="flex lg:flex-row flex-col lg:items-center items-start gap-10">
         <RadixNavigationMenu.Item>
           <Link
