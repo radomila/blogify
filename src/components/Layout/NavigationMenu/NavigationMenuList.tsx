@@ -13,7 +13,6 @@ interface Props {
 
 const NavigationMenuList = ({ setIsNavigationMenuOpen }: Props) => {
   const { user, logout } = useAuth();
-
   const onNavMenuItemClick = () => {
     setIsNavigationMenuOpen(false);
   };
@@ -28,12 +27,12 @@ const NavigationMenuList = ({ setIsNavigationMenuOpen }: Props) => {
         'lg:flex-row lg:items-center lg:p-0',
       )}
     >
-      <p
+      <div
         className="lg:hidden"
         aria-label="User account email address"
       >
         {user?.email}
-      </p>
+      </div>
       <ul className="flex lg:flex-row flex-col lg:items-center items-start gap-10">
         <RadixNavigationMenu.Item>
           <Link
