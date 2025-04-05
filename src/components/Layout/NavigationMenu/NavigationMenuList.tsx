@@ -1,10 +1,10 @@
 import { NavigationMenu as RadixNavigationMenu } from 'radix-ui';
 import Link from 'next/link';
 import { HomeIcon, PersonIcon } from '@radix-ui/react-icons';
-import AccountMenu from '@/components/Layout/AccountMenu';
 import * as React from 'react';
 import { useAuth } from '@/hooks/useAuth';
 import { clsx } from 'clsx';
+import AccountMenu from '@/components/Layout/AccountMenu';
 import Button from '@/components/Components/Button/Button';
 
 interface Props {
@@ -27,49 +27,56 @@ const NavigationMenuList = ({ setIsNavigationMenuOpen }: Props) => {
         'lg:flex-row lg:items-center lg:p-0',
       )}
     >
-      {user && <p className="flex lg:hidden">{user?.email}</p>}
-      <ul className="flex lg:flex-row flex-col lg:items-center items-start gap-10">
-        <RadixNavigationMenu.Item>
-          <Link
-            href="/"
-            onClick={onNavMenuItemClick}
-            className="flex items-start gap-3 transition-colors duration-300 hover:text-[#0045DB]"
-          >
-            <HomeIcon className="h-5 w-5" />
-            Home
-          </Link>
-        </RadixNavigationMenu.Item>
-        <RadixNavigationMenu.Item>
-          <Link
-            href="/about"
-            onClick={onNavMenuItemClick}
-            className="flex items-start gap-3 transition-colors duration-300 hover:text-[#0045DB]"
-          >
-            {' '}
-            <PersonIcon className="h-5 w-5" />
-            About
-          </Link>
-        </RadixNavigationMenu.Item>
-      </ul>
       {user && (
-        <Button
-          onClick={logout}
-          className="lg:hidden"
-          aria-label="Logout"
+        <RadixNavigationMenu.Item>
+          <p className="flex lg:hidden">{user?.email}</p>
+        </RadixNavigationMenu.Item>
+      )}
+      <RadixNavigationMenu.Item>
+        <Link
+          href="/"
+          onClick={onNavMenuItemClick}
+          className="flex items-start gap-3 transition-colors duration-300 hover:text-[#0045DB]"
         >
-          Logout
-        </Button>
+          <HomeIcon className="h-5 w-5" />
+          Home
+        </Link>
+      </RadixNavigationMenu.Item>
+      <RadixNavigationMenu.Item>
+        <Link
+          href="/about"
+          onClick={onNavMenuItemClick}
+          className="flex items-start gap-3 transition-colors duration-300 hover:text-[#0045DB]"
+        >
+          {' '}
+          <PersonIcon className="h-5 w-5" />
+          About
+        </Link>
+      </RadixNavigationMenu.Item>
+
+      {user && (
+        <RadixNavigationMenu.Item>
+          <Button
+            onClick={logout}
+            className="flex lg:hidden"
+            aria-label="Logout"
+          >
+            Logout
+          </Button>
+        </RadixNavigationMenu.Item>
       )}
 
       {user ? (
-        <AccountMenu />
+        <RadixNavigationMenu.Item>
+          <AccountMenu />
+        </RadixNavigationMenu.Item>
       ) : (
-        <ul className="flex lg:flex-row flex-col items-center gap-4 py-1">
+        <>
           <RadixNavigationMenu.Item>
             <Link
               href="/signup"
               onClick={onNavMenuItemClick}
-              className="flex items-start gap-3 text-[#0045DB] border-2 px-6 py-2 rounded-3xl"
+              className="flex items-start text-[#0045DB] border-2 px-6 py-2 rounded-3xl"
             >
               Sign up
             </Link>
@@ -78,12 +85,12 @@ const NavigationMenuList = ({ setIsNavigationMenuOpen }: Props) => {
             <Link
               href="/signin"
               onClick={onNavMenuItemClick}
-              className="flex items-center gap-2 text-white bg-[#0045DB] px-7 py-2 rounded-3xl"
+              className="flex items-center text-white bg-[#0045DB] px-7 py-2 rounded-3xl"
             >
               Sign in
             </Link>
           </RadixNavigationMenu.Item>
-        </ul>
+        </>
       )}
     </RadixNavigationMenu.List>
   );
