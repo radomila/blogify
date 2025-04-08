@@ -3,10 +3,6 @@ import { mauve, violet, red, blackA, gray } from '@radix-ui/colors';
 // tailwind.config.js
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  //content: ['./src/**/*.{html,js,jsx,ts,tsx}'],
-  // plugins: {
-  //   '@tailwindcss/postcss': {},
-  // },
   theme: {
     extend: {
       colors: {

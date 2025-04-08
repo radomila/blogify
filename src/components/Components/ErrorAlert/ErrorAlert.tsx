@@ -13,7 +13,7 @@ const ErrorAlert = ({ error, showCloseButton, showHomeButton }: ErrorAlertType) 
   return (
     isOpened && (
       <div
-        className="bg-white rounded-md px-3 py-7 mt-7 shadow-md border border-gray-200 w-[600px]"
+        className="bg-white rounded-md px-3 py-7 mt-7 shadow-md border border-gray-200 w-fit"
         role="alert"
       >
         <div className="flex items-end gap-1 px-2">
@@ -30,7 +30,7 @@ const ErrorAlert = ({ error, showCloseButton, showHomeButton }: ErrorAlertType) 
           </p>
         </div>
         <div
-          className="flex px-2 py-5"
+          className="flex text-left px-2 py-5"
           aria-live="assertive"
         >
           {error ? error : 'Something went wrong. Please try again later.'}

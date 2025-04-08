@@ -40,28 +40,34 @@ const PostCard = ({ post, onDeleteBtnClick }: Props) => {
 
   return (
     <li
-      className="flex flex-col bg-white rounded-sm border-transparent shadow-[#57595B] shadow-sm md:transition-all md:duration-300 md:hover:scale-105 w-[350px] h-[450px]"
+      className="flex flex-col bg-white rounded-sm border-transparent shadow-[#57595B] shadow-sm lg:transition-all lg:duration-300 lg:hover:scale-105 w-[350px] h-[450px]"
       role="listitem"
       aria-label="Blog post preview card"
     >
       {firstImageTag ? (
         <div
-          className="w-full h-[170px] overflow-hidden mb-1"
+          className="w-full h-[180px] overflow-hidden mb-1"
           dangerouslySetInnerHTML={{ __html: firstImageTag }}
           aria-label="Blog post preview image"
         />
       ) : (
         <div
-          className="w-full h-[170px] bg-[#A6AAAD] mb-1"
+          className="w-full h-[180px] bg-[#A6AAAD] mb-1 flex items-center justify-center"
           aria-hidden="true"
-        ></div>
+        >
+          <img
+            src="/placeholder_icon.svg"
+            alt="Placeholder image"
+            className="w-15"
+          />
+        </div>
       )}
       <div className="flex flex-col flex-grow p-6">
         <div className="flex items-center gap-2 pb-2 text-[#57595B] font-medium">
-          <CalendarIcon />
+          <CalendarIcon className="w-5 h-5" />
           <Text
             as="p"
-            size="2"
+            size="3"
           >
             {createdAtDate}
           </Text>

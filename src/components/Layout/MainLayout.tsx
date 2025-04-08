@@ -20,7 +20,7 @@ const MainLayout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen bg-background">
       <Menu />
-      <div className="flex-grow">{children}</div>
+      <div className="flex-grow mt-10 mb-10">{children}</div>
     </div>
   );
 };

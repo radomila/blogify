@@ -20,10 +20,18 @@ const Home = () => {
     queryFn: () => getPosts(),
   });
 
+  const normalizedText = (text: string) => {
+    return text
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .toLowerCase();
+  };
+
   const filteredPosts = useMemo(() => {
     let result = posts;
+
     if (searchValue) {
-      result = posts?.filter((post) => post.title.toLowerCase().includes(searchValue.toLowerCase()));
+      result = posts?.filter((post) => normalizedText(post.title).includes(normalizedText(searchValue)));
     }
     return result?.sort((a, b) => {
       if (sortOrder === SelectEnum.ASCENDING) {

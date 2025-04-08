@@ -13,7 +13,7 @@ const RichTextEditorToolbar = ({ editor }: Props) => {
   const [uploadImageDialogOpen, setUploadImageDialogOpen] = useState<boolean>(false);
   return (
     <Toolbar.Root
-      className="flex w-full min-w-max rounded-md rounded-br-none rounded-bl-none bg-white p-2.5 border border-b-0 border-[#57595B]"
+      className="flex w-full min-w-fit rounded-md rounded-br-none rounded-bl-none bg-white p-2.5 border border-b-0 border-[#57595B]"
       aria-label="Formatting options"
     >
       <Toolbar.ToggleGroup

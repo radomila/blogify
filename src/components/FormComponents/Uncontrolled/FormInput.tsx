@@ -48,7 +48,7 @@ const FormInput = ({ type, placeholder, label, isRequired, onChange, onBlur, val
         )}
       </div>
       <div
-        className="text-red-500"
+        className="text-red-500 text-left"
         role="status"
         aria-label="Error message"
       >

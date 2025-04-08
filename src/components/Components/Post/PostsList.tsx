@@ -15,7 +15,7 @@ const PostsList = ({ posts }: Props) => {
   return (
     <>
       <ul
-        className="flex flex-wrap justify-between items-center gap-10 md:gap-12 xl:gap-10"
+        className="flex flex-wrap justify-between lg:justify-center items-center gap-10 md:gap-12 xl:gap-12"
         role="list"
         aria-label="Blog posts list"
       >

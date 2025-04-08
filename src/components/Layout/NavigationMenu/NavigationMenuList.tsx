@@ -24,7 +24,7 @@ const NavigationMenuList = ({ setIsNavigationMenuOpen }: Props) => {
         'text-md font-medium tracking-wide',
 
         'lg:static lg:w-auto lg:h-auto lg:bg-transparent',
-        'lg:flex-row lg:items-center lg:p-0',
+        'lg:flex-row lg:items-center lg:gap-5 lg:p-0',
       )}
     >
       {user && (
@@ -36,7 +36,7 @@ const NavigationMenuList = ({ setIsNavigationMenuOpen }: Props) => {
         <Link
           href="/"
           onClick={onNavMenuItemClick}
-          className="flex items-start gap-3 transition-colors duration-300 hover:text-[#0045DB]"
+          className="flex items-start gap-4 transition-colors duration-300 hover:text-[#0045DB]"
         >
           <HomeIcon className="h-5 w-5" />
           Home
@@ -46,7 +46,7 @@ const NavigationMenuList = ({ setIsNavigationMenuOpen }: Props) => {
         <Link
           href="/about"
           onClick={onNavMenuItemClick}
-          className="flex items-start gap-3 transition-colors duration-300 hover:text-[#0045DB]"
+          className="flex items-start gap-4 md:pl-3 transition-colors duration-300 hover:text-[#0045DB]"
         >
           {' '}
           <PersonIcon className="h-5 w-5" />
