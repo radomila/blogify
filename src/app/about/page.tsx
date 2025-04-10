@@ -13,6 +13,7 @@ const About = () => {
       >
         About
       </Heading>
+
       {sections.map((section) => {
         return (
           <AboutSection
