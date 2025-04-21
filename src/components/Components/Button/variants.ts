@@ -17,7 +17,7 @@ export const buttonVariants = cva('flex items-center justify-center gap-1 cursor
       form: 'h-[35px] w-xs px-4 py-1 rounded-md tracking-wider',
       detail: 'px-5 py-2',
       create: 'px-5 py-2 rounded-md',
-      error: 'px-5 py-1 rounded-md tracking-wider',
+      error: 'px-5 py-2 rounded-md tracking-wider',
       errorSecondary: 'px-5 py-2 rounded-md tracking-wider',
       upload: 'px-5 py-1 rounded-md tracking-wider',
       uploadSecondary: 'px-5 py-2 rounded-md tracking-wider',

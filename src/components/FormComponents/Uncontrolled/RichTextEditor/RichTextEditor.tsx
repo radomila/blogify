@@ -44,7 +44,7 @@ const RichTextEditor = ({ value, onChange, className, label, isRequired, tooltip
       {editor ? <RichTextEditorToolbar editor={editor} /> : null}
       <EditorContent editor={editor} />
       <div
-        className="text-red-500"
+        className="text-red-500 text-left"
         role="status"
         aria-label="Error message"
       >

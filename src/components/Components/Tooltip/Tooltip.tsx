@@ -23,7 +23,7 @@ const Tooltip = ({ text }: TooltipType) => {
             side="right"
             sideOffset={5}
             role="tooltip"
-            aria-label="Tooltip instructions content"
+            aria-label={text}
           >
             {text}
             <RadixTooltip.Arrow className="fill-blue-600" />

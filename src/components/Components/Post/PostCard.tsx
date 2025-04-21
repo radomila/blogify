@@ -1,18 +1,19 @@
 import { Text } from '@radix-ui/themes';
 import { Post } from '@/types/posts';
 import LinkButton from '@/components/Components/Button/LinkButton';
-import Button from '@/components/Components/Button/Button';
 import { useAuth } from '@/hooks/useAuth';
 import DOMPurify from 'dompurify';
 import { ArrowRightIcon, CalendarIcon } from '@radix-ui/react-icons';
+import DeletePostDialog from '@/components/Components/DeletePostDialog/DeletePostDialog';
 import * as React from 'react';
+import { useState } from 'react';
 
 interface Props {
   post: Post;
-  onDeleteBtnClick: () => void;
 }
 
-const PostCard = ({ post, onDeleteBtnClick }: Props) => {
+const PostCard = ({ post }: Props) => {
+  const [deletePost, setDeletePost] = useState<{ post: Post | null; open: boolean }>({ post: null, open: false });
   const { user } = useAuth();
 
   const date = new Date(post.createdAt!);
@@ -115,19 +116,12 @@ const PostCard = ({ post, onDeleteBtnClick }: Props) => {
                 className="w-6 h-8"
               />
             </LinkButton>
-            <Button
-              onClick={onDeleteBtnClick}
-              variant="default"
-              size="default"
-              aria-label="Delete blog post"
-            >
-              <img
-                src="/delete_icon.svg"
-                alt=""
-                role="img"
-                className="w-6 h-8"
-              />
-            </Button>
+            <DeletePostDialog
+              id={deletePost.post?.id ?? ''}
+              //open={deletePost.open}
+              setOpen={() => setDeletePost({ post: null, open: false })}
+              onDeleteConfirmationBtnClick={() => setDeletePost({ post, open: true })}
+            />
           </div>
         )}
       </div>

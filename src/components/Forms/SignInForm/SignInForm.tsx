@@ -29,20 +29,17 @@ const SignInForm = () => {
       showOverlay();
       await signIn(email, password);
       router.push('/');
-      console.log('SIGNIN SUCCESS');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong.');
-      console.log(err);
     } finally {
       hideOverlay();
-      console.log('SIGNIN DONE');
     }
   };
 
   const textButton = 'Sign in';
   return (
     <div
-      className="text-center mt-20"
+      className="flex flex-col items-center text-center mt-20"
       aria-label="Sign in form"
     >
       <Heading
@@ -61,7 +58,7 @@ const SignInForm = () => {
         />
       )}
       <Form.Root
-        className="flex flex-col gap-8 mt-12"
+        className="flex flex-col gap-8 mt-12 max-w-xs"
         onSubmit={handleSubmit(handleFormOnSubmit, (err) => console.error(err))}
       >
         <FormInputField
@@ -78,7 +75,7 @@ const SignInForm = () => {
           isRequired
           control={control}
           name="password"
-          tooltipText="Password must be between 8–12 characters, containing at least one uppercase letter, number, and special character (@, #, !, etc.)."
+          tooltipText="Please, enter the same password, which was used when signing up."
         />
         <Form.Submit asChild>
           <Button

@@ -38,17 +38,8 @@ const AccountMenu = () => {
           )}
         </Menubar.Trigger>
         <Menubar.Portal>
-          <Menubar.Content className="absolute mt-2 rounded-sm shadow-md border border-gray-200 bg-white font-medium w-[180px] max-w-[180px] p-4">
-            <Menubar.Item>
-              <Button
-                variant="default"
-                size="default"
-                onClick={logout}
-                aria-label="Logout"
-              >
-                Logout
-              </Button>
-            </Menubar.Item>
+          <Menubar.Content className="absolute mt-2 rounded-sm shadow-md border border-gray-200 bg-white font-medium w-[180px] max-w-[180px] p-4 cursor-pointer">
+            <Menubar.Item onClick={logout}>Logout</Menubar.Item>
           </Menubar.Content>
         </Menubar.Portal>
       </Menubar.Menu>
