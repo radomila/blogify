@@ -5,7 +5,6 @@ import * as React from 'react';
 import { Menubar } from 'radix-ui';
 import { CaretDownIcon, CaretUpIcon } from '@radix-ui/react-icons';
 import { useState } from 'react';
-import Button from '@/components/Components/Button/Button';
 
 const AccountMenu = () => {
   const { user, logout } = useAuth();
