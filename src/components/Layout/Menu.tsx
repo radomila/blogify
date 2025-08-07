@@ -17,7 +17,7 @@ const Menu = () => {
       role="banner"
     >
       <Link
-        href="/"
+        href="/public"
         role="link"
       >
         <Logo />
