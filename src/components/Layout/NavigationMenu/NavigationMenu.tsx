@@ -2,8 +2,8 @@
 
 import { NavigationMenu as RadixNavigationMenu } from 'radix-ui';
 import { clsx } from 'clsx';
-import Button from '@/components/Components/Button/Button';
-import NavigationMenuList from '@/components/Layout/NavigationMenu/NavigationMenuList';
+import Button from '@/components/core/Button/Button';
+import NavigationMenuList from '@/components/layout/NavigationMenu/NavigationMenuList';
 import * as React from 'react';
 
 interface Props {
@@ -17,7 +17,7 @@ const NavigationMenu = ({ isNavigationMenuOpen, setIsNavigationMenuOpen }: Props
       role="navigation"
       aria-label="Navigation"
       className={clsx(
-        'fixed top-0 left-0 w-full h-full bg-white z-2 transition-transform duration-300 ease-in-out flex flex-col',
+        'fixed top-0 left-0 w-full h-full bg-background-light z-2 transition-transform duration-300 ease-in-out flex flex-col',
         isNavigationMenuOpen ? 'translate-x-0' : '-translate-x-full',
         'lg:static lg:translate-x-0 lg:flex lg:w-auto lg:h-auto lg:bg-transparent',
       )}
@@ -28,7 +28,7 @@ const NavigationMenu = ({ isNavigationMenuOpen, setIsNavigationMenuOpen }: Props
         aria-label="Close menu"
       >
         <img
-          src="/close_public.svg"
+          src="/icons/close_public.svg"
           alt=""
           className="w-6 cursor-pointer lg:hidden"
         />

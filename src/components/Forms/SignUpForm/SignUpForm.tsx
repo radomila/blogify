@@ -1,19 +1,19 @@
 'use client';
 
 import { Form } from 'radix-ui';
-import FormInputField from '@/components/FormComponents/Controlled/FormInputField';
+import FormInputField from '@/components/inputs/controlled/FormInputField';
 import { useForm } from 'react-hook-form';
-import { SignUpFormType } from '@/components/Forms/SignUpForm/signUpFormType';
+import { SignUpFormType } from '@/components/forms/SignUpForm/signUpFormType';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { signUpFormSchema } from '@/components/Forms/SignUpForm/signUpFormSchema';
-import { register } from '@/services/AuthService';
+import { signUpFormSchema } from '@/components/forms/SignUpForm/signUpFormSchema';
 import { useOverlayLoading } from '@/hooks/useOverlayLoading';
-import PasswordInputField from '@/components/FormComponents/Controlled/PasswordInputField';
+import PasswordInputField from '@/components/inputs/controlled/PasswordInputField';
 import { useRouter } from 'next/navigation';
-import Button from '@/components/Components/Button/Button';
+import Button from '@/components/core/Button/Button';
 import { Heading } from '@radix-ui/themes';
-import { useState } from 'react';
-import ErrorAlert from '@/components/Components/ErrorAlert/ErrorAlert';
+import ErrorAlert from '@/components/core/ErrorAlert';
+import { useAuth } from '@/hooks/useAuth';
+import { useError } from '@/hooks/useError';
 
 const SignUpForm = () => {
   const router = useRouter();
@@ -21,13 +21,14 @@ const SignUpForm = () => {
   const { handleSubmit, control, trigger } = useForm<SignUpFormType>({
     resolver: zodResolver(signUpFormSchema),
   });
-  const [error, setError] = useState<string | null>(null);
+  const { error, setError } = useError();
+  const { signUp } = useAuth();
 
   const handleFormOnSubmit = async ({ password, email }: SignUpFormType) => {
     setError(null);
     try {
       showOverlay();
-      await register(email, password);
+      await signUp(email, password);
       router.push('/');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong.');

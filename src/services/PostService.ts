@@ -1,7 +1,7 @@
 import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, orderBy, query, updateDoc, where } from '@firebase/firestore';
 import { firebaseDb } from '@/clients/firebase';
 import { Post } from '@/types/posts';
-import { CreateEditPostFormType } from '@/components/Forms/CreatePostForm/CreateEditPostFormType';
+import { CreateEditPostFormType } from '@/components/forms/CreatePostForm/CreateEditPostFormType';
 import { getAuth } from 'firebase/auth';
 
 const COLLECTION_NAME = 'posts';
@@ -19,7 +19,7 @@ export const getPosts = async (): Promise<Post[]> => {
   })) as Post[];
 };
 
-export const getPost = async (id: string): Promise<Post> => {
+export const getPostById = async (id: string): Promise<Post> => {
   const docRef = doc(firebaseDb, COLLECTION_NAME, id);
   const docSnap = await getDoc(docRef);
 
@@ -67,5 +67,5 @@ export const updatePost = async (id: string, post: Partial<Post>): Promise<Post>
     updatedAt: new Date(),
   });
 
-  return await getPost(id);
+  return await getPostById(id);
 };

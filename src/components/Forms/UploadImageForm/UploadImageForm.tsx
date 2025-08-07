@@ -1,11 +1,11 @@
 'use client';
 
-import FormInputField from '@/components/FormComponents/Controlled/FormInputField';
+import FormInputField from '@/components/inputs/controlled/FormInputField';
 import { UseFormReturn } from 'react-hook-form';
-import { UploadImageFormType } from '@/components/Forms/UploadImageForm/UploadImageFormType';
+import { UploadImageFormType } from '@/components/forms/UploadImageForm/UploadImageFormType';
 import { useState } from 'react';
-import ErrorAlert from '@/components/Components/ErrorAlert/ErrorAlert';
-import FormFileInputField from '@/components/FormComponents/Controlled/FormFileInputField';
+import ErrorAlert from '@/components/core/ErrorAlert';
+import FormFileInputField from '@/components/inputs/controlled/FormFileInputField';
 
 interface Props {
   form: UseFormReturn<UploadImageFormType>;

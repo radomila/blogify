@@ -1,4 +1,4 @@
-import AboutSection from '@/components/Components/AboutSection/AboutSection';
+import AboutSection from '@/components/core/AboutSection';
 import { sections } from '@/app/about/sections';
 import { Heading } from '@radix-ui/themes';
 

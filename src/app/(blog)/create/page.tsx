@@ -1,14 +1,15 @@
 'use client';
 
-import CreateEditPostForm from '@/components/Forms/CreatePostForm/CreateEditPostForm';
-import ProtectedRoute from '@/components/Components/ProtectedRoute';
+import CreateEditPostForm from '@/components/forms/CreatePostForm/CreateEditPostForm';
+import ProtectedRoute from '@/components/core/ProtectedRoute';
+import BlogLayout from '@/components/layout/BlogLayout';
 
 const CreatePost = () => {
   return (
     <ProtectedRoute>
-      <div className="flex justify-center gap-8">
+      <BlogLayout ariaLabelText="Create blog post section">
         <CreateEditPostForm />
-      </div>
+      </BlogLayout>
     </ProtectedRoute>
   );
 };

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { OverlayLoadingContext, OverlayLoadingContextType } from '@/context/OverlayLoadingContext';
+import { OverlayLoadingContext, OverlayLoadingContextType } from '@/contexts/OverlayLoadingContext';
 
 export const useOverlayLoading = (): OverlayLoadingContextType => {
   const context = useContext(OverlayLoadingContext);

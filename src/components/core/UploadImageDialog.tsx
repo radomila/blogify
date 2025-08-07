@@ -1,0 +1,67 @@
+import { AlertDialog as RadixAlertDialog, Form } from 'radix-ui';
+import Button from '@/components/core/Button/Button';
+import UploadImageForm from '@/components/forms/UploadImageForm/UploadImageForm';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { uploadImageFormSchema } from '@/components/forms/UploadImageForm/uploadImageFormSchema';
+import { UploadImageFormType } from '@/components/forms/UploadImageForm/UploadImageFormType';
+
+interface Props {
+  open: boolean;
+  setOpen: (open: boolean) => void;
+  onSubmitCallback: (uploadedImage: UploadImageFormType) => void;
+}
+
+const DeletePostDialog = ({ open, setOpen, onSubmitCallback }: Props) => {
+  const form = useForm<UploadImageFormType>({
+    resolver: zodResolver(uploadImageFormSchema),
+  });
+  const { handleSubmit, trigger } = form;
+
+  const handleFormOnSubmit = async (image: UploadImageFormType) => {
+    onSubmitCallback(image);
+    setOpen(false);
+  };
+
+  return (
+    <RadixAlertDialog.Root open={open}>
+      <RadixAlertDialog.Portal>
+        <RadixAlertDialog.Overlay className="fixed inset-0 bg-background-overlay data-[state=open]:animate-overlayShow" />
+        <RadixAlertDialog.Content className="fixed left-1/2 top-1/2 max-h-[85vh] w-[90vw] max-w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-md bg-background-light p-[25px] focus:outline-none data-[state=open]:animate-contentShow">
+          <RadixAlertDialog.Title className="m-0 text-xl font-medium">Upload Image</RadixAlertDialog.Title>
+          <Form.Root
+            className="gap-8 w-full"
+            name="uploadImage"
+            onSubmit={(e) => {
+              handleSubmit(handleFormOnSubmit, (err) => console.error(err))();
+              e.stopPropagation();
+            }}
+          >
+            <UploadImageForm form={form} />
+            <div className="flex gap-5 justify-end">
+              <Button
+                onClick={() => setOpen(false)}
+                variant="uploadSecondary"
+                size="uploadSecondary"
+                aria-label="Cancel"
+              >
+                Cancel
+              </Button>
+              <Button
+                variant="upload"
+                size="upload"
+                type="submit"
+                onClick={() => trigger()}
+                aria-label="Upload image"
+              >
+                Upload
+              </Button>
+            </div>
+          </Form.Root>
+        </RadixAlertDialog.Content>
+      </RadixAlertDialog.Portal>
+    </RadixAlertDialog.Root>
+  );
+};
+
+export default DeletePostDialog;

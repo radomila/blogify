@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
-import { getPost } from '@/services/PostService';
-import LoadingSpinner from '@/components/Components/Loading/LoadingSpinner';
-import ErrorAlert from '@/components/Components/ErrorAlert/ErrorAlert';
-import CreateEditPostForm from '@/components/Forms/CreatePostForm/CreateEditPostForm';
+import { getPostById } from '@/services/PostService';
+import OverlaySpinner from '@/components/core/OverlayLoading/OverlaySpinner';
+import ErrorAlert from '@/components/core/ErrorAlert';
+import CreateEditPostForm from '@/components/forms/CreatePostForm/CreateEditPostForm';
 
 interface Props {
   postId?: string;
@@ -16,12 +16,12 @@ export const CreateEditPostFormWrapper = ({ postId }: Props) => {
     error: editPostError,
   } = useQuery({
     queryKey: ['post', postId],
-    queryFn: () => getPost(postId!),
+    queryFn: () => getPostById(postId!),
     refetchOnWindowFocus: false,
     enabled: !!postId,
   });
 
-  if (isEditPostFetching) return <LoadingSpinner />;
+  if (isEditPostFetching) return <OverlaySpinner />;
 
   if (isEditPostError) {
     return (

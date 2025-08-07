@@ -2,7 +2,7 @@ const Logo = () => {
   return (
     <div className="flex items-center gap-1">
       <img
-        src="/logo.svg"
+        src="/icons/logo.svg"
         alt="Blogify logo"
         className="w-15 h-15"
       />

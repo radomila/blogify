@@ -1,17 +1,18 @@
 'use client';
 
-import ProtectedRoute from '@/components/Components/ProtectedRoute';
+import ProtectedRoute from '@/components/core/ProtectedRoute';
 import { useParams } from 'next/navigation';
-import { CreateEditPostFormWrapper } from '@/components/Forms/CreatePostForm/CreateEditPostFormWrapper';
+import { CreateEditPostFormWrapper } from '@/components/forms/CreatePostForm/CreateEditPostFormWrapper';
+import BlogLayout from '@/components/layout/BlogLayout';
 
 const EditPost = () => {
   const { id } = useParams<{ id: string }>();
 
   return (
     <ProtectedRoute>
-      <div className="flex justify-center gap-8">
+      <BlogLayout ariaLabelText="Edit blog post section">
         <CreateEditPostFormWrapper postId={id} />
-      </div>
+      </BlogLayout>
     </ProtectedRoute>
   );
 };

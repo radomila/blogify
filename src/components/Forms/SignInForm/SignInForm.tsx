@@ -1,19 +1,19 @@
 'use client';
 
 import { Form } from 'radix-ui';
-import FormInputField from '@/components/FormComponents/Controlled/FormInputField';
+import FormInputField from '@/components/inputs/controlled/FormInputField';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { SignInFormType } from '@/components/Forms/SignInForm/signInFormType';
-import { signInFormSchema } from '@/components/Forms/SignInForm/signInFormSchema';
-import { signIn } from '@/services/AuthService';
+import { SignInFormType } from '@/components/forms/SignInForm/signInFormType';
+import { signInFormSchema } from '@/components/forms/SignInForm/signInFormSchema';
 import { useOverlayLoading } from '@/hooks/useOverlayLoading';
-import PasswordInputField from '@/components/FormComponents/Controlled/PasswordInputField';
+import PasswordInputField from '@/components/inputs/controlled/PasswordInputField';
 import { useRouter } from 'next/navigation';
-import Button from '@/components/Components/Button/Button';
+import Button from '@/components/core/Button/Button';
 import { Heading } from '@radix-ui/themes';
-import { useState } from 'react';
-import ErrorAlert from '@/components/Components/ErrorAlert/ErrorAlert';
+import ErrorAlert from '@/components/core/ErrorAlert';
+import { useAuth } from '@/hooks/useAuth';
+import { useError } from '@/hooks/useError';
 
 const SignInForm = () => {
   const router = useRouter();
@@ -21,7 +21,8 @@ const SignInForm = () => {
   const { handleSubmit, control, trigger } = useForm<SignInFormType>({
     resolver: zodResolver(signInFormSchema),
   });
-  const [error, setError] = useState<string | null>(null);
+  const { error, setError } = useError();
+  const { signIn } = useAuth();
 
   const handleFormOnSubmit = async ({ password, email }: SignInFormType) => {
     setError(null);

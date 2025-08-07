@@ -1,11 +1,10 @@
 import { NavigationMenu as RadixNavigationMenu } from 'radix-ui';
 import Link from 'next/link';
 import { HomeIcon, PersonIcon } from '@radix-ui/react-icons';
-import * as React from 'react';
 import { useAuth } from '@/hooks/useAuth';
 import { clsx } from 'clsx';
-import AccountMenu from '@/components/Layout/AccountMenu';
-import Button from '@/components/Components/Button/Button';
+import UserMenu from '@/components/layout/UserMenu';
+import Button from '@/components/core/Button/Button';
 
 interface Props {
   setIsNavigationMenuOpen: (isOpen: boolean) => void;
@@ -36,7 +35,7 @@ const NavigationMenuList = ({ setIsNavigationMenuOpen }: Props) => {
         <Link
           href="/"
           onClick={onNavMenuItemClick}
-          className="flex items-start gap-4 transition-colors duration-300 hover:text-[#0045DB]"
+          className="flex items-start gap-4 transition-colors duration-300 hover:text-primary"
         >
           <HomeIcon className="h-5 w-5" />
           Home
@@ -46,7 +45,7 @@ const NavigationMenuList = ({ setIsNavigationMenuOpen }: Props) => {
         <Link
           href="/about"
           onClick={onNavMenuItemClick}
-          className="flex items-start gap-4 md:pl-3 transition-colors duration-300 hover:text-[#0045DB]"
+          className="flex items-start gap-4 md:pl-3 transition-colors duration-300 hover:text-primary"
         >
           {' '}
           <PersonIcon className="h-5 w-5" />
@@ -68,7 +67,7 @@ const NavigationMenuList = ({ setIsNavigationMenuOpen }: Props) => {
 
       {user ? (
         <RadixNavigationMenu.Item>
-          <AccountMenu />
+          <UserMenu />
         </RadixNavigationMenu.Item>
       ) : (
         <>
@@ -76,7 +75,7 @@ const NavigationMenuList = ({ setIsNavigationMenuOpen }: Props) => {
             <Link
               href="/signup"
               onClick={onNavMenuItemClick}
-              className="flex items-start text-[#0045DB] border-2 px-6 py-2 rounded-3xl"
+              className="flex items-start text-primary border-2 px-6 py-2 rounded-3xl"
             >
               Sign up
             </Link>
@@ -85,7 +84,7 @@ const NavigationMenuList = ({ setIsNavigationMenuOpen }: Props) => {
             <Link
               href="/signin"
               onClick={onNavMenuItemClick}
-              className="flex items-center text-white bg-[#0045DB] px-7 py-2 rounded-3xl"
+              className="flex items-center text-white bg-primary px-7 py-2 rounded-3xl"
             >
               Sign in
             </Link>

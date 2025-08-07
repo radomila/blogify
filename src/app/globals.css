@@ -1,16 +1,21 @@
 @import "tailwindcss";
 @import "@radix-ui/themes/styles.css";
 
-:root {
-  --background: #F5F7FF;
-  --foreground: #171717;
+@theme inline {
+  --color-primary: #0045DB;
+  --color-foreground: #171717;
+  --color-background: #F5F7FF;
+  --color-background-overlay: #00000099;
+  --color-background-light: #ffffff;
+  --color-error: #EB0000;
+  --color-shadow: #57595B;
+  --color-shadow-medium: #A6AAAD;
+  --color-shadow-light: #f3f4f6;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+:root {
+  --background: var(--color-background);
+  --foreground: var(--color-foreground);
 }
 
 body {

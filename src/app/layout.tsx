@@ -1,6 +1,7 @@
+import { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { Theme } from '@radix-ui/themes';
-import MainLayout from '@/components/Layout/MainLayout';
+import AppLayout from '@/components/layout/AppLayout';
 import { OverlayLoadingProvider } from '@/providers/OverlayLoadingProvider';
 import QueryProvider from '@/providers/QueryProvider';
 import { AuthProvider } from '@/providers/AuthProvider';
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -23,7 +24,7 @@ export default function RootLayout({
           <QueryProvider>
             <OverlayLoadingProvider>
               <Theme>
-                <MainLayout>{children}</MainLayout>
+                <AppLayout>{children}</AppLayout>
               </Theme>
             </OverlayLoadingProvider>
           </QueryProvider>

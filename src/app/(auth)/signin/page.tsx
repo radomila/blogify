@@ -1,25 +1,22 @@
 import Link from 'next/link';
-import SignInForm from '@/components/Forms/SignInForm/SignInForm';
+import SignInForm from '@/components/forms/SignInForm/SignInForm';
+import AuthLayout from '@/components/layout/AuthLayout';
 
 const SignIn = () => {
   return (
-    <div
-      className="flex flex-col items-center gap-8"
-      role="group"
-      aria-label="Sign in form"
-    >
+    <AuthLayout ariaLabelText="Sign in section">
       <SignInForm />
       <div className="text-lg">
         Does not have an account yet?
         <Link
           href="/signup"
-          className="font-medium text-[#0045DB] pl-1"
+          className="font-medium text-primary pl-1"
           role="link"
         >
           Sign up
         </Link>
       </div>
-    </div>
+    </AuthLayout>
   );
 };
 

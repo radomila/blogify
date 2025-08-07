@@ -1,19 +1,19 @@
 'use client';
 
 import { Form } from 'radix-ui';
-import FormInputField from '@/components/FormComponents/Controlled/FormInputField';
+import FormInputField from '@/components/inputs/controlled/FormInputField';
 import { useForm } from 'react-hook-form';
-import { CreateEditPostFormType } from '@/components/Forms/CreatePostForm/CreateEditPostFormType';
-import { createEditPostFormSchema } from '@/components/Forms/CreatePostForm/createEditPostFormSchema';
+import { CreateEditPostFormType } from '@/components/forms/CreatePostForm/CreateEditPostFormType';
+import { createEditPostFormSchema } from '@/components/forms/CreatePostForm/createEditPostFormSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import Button from '@/components/Components/Button/Button';
+import Button from '@/components/core/Button/Button';
 import { useOverlayLoading } from '@/hooks/useOverlayLoading';
 import { useRouter } from 'next/navigation';
 import { createPost, updatePost } from '@/services/PostService';
 import { Heading } from '@radix-ui/themes';
 import { useState } from 'react';
-import ErrorAlert from '@/components/Components/ErrorAlert/ErrorAlert';
-import RichTextEditorField from '@/components/FormComponents/Controlled/RichTextEditorField';
+import ErrorAlert from '@/components/core/ErrorAlert';
+import RichTextEditorField from '@/components/inputs/controlled/RichTextEditorField';
 import { Post } from '@/types/posts';
 
 interface Props {

@@ -1,8 +1,8 @@
 'use client';
 
 import { FC, ReactNode, useState } from 'react';
-import OverlayLoading from '@/components/Components/Loading/OverlayLoading';
-import { OverlayLoadingContext } from '@/context/OverlayLoadingContext';
+import OverlayLoadingWrapper from '@/components/core/OverlayLoading/OverlayLoadingWrapper';
+import { OverlayLoadingContext } from '@/contexts/OverlayLoadingContext';
 
 interface OverlayLoadingProviderType {
   children: ReactNode;
@@ -17,7 +17,7 @@ export const OverlayLoadingProvider: FC<OverlayLoadingProviderType> = ({ childre
 
   return (
     <OverlayLoadingContext.Provider value={{ showOverlay, hideOverlay }}>
-      {loading && <OverlayLoading />}
+      {loading && <OverlayLoadingWrapper />}
       {children}
     </OverlayLoadingContext.Provider>
   );

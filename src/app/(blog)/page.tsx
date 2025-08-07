@@ -1,13 +1,13 @@
 'use client';
 
 import { useMemo, useState } from 'react';
-import PostsList from '@/components/Components/Post/PostsList';
-import Toolbar from '@/components/Components/Toolbar/Toolbar';
+import PostsList from '@/components/core/Post/PostsList';
+import Toolbar from '@/components/core/Toolbar/Toolbar';
 import { useQuery } from '@tanstack/react-query';
 import { getPosts } from '@/services/PostService';
-import NoPostsFound from '@/components/NoPostsFound';
+import NoPostsFound from '@/components/core/NoPostsFound';
 import { SelectEnum } from '@/types/SelectEnum';
-import LoadingSpinner from '@/components/Components/Loading/LoadingSpinner';
+import OverlaySpinner from '@/components/core/OverlayLoading/OverlaySpinner';
 import { Separator } from 'radix-ui';
 import { Heading } from '@radix-ui/themes';
 
@@ -58,8 +58,8 @@ const Home = () => {
         sortOrder={sortOrder}
         setSortOrder={setSortOrder}
       />
-      <Separator.Root className="my-[50px] bg-[#57595B] data-[orientation=horizontal]:h-px data-[orientation=vertical]:h-full data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-px" />
-      {isFetching ? <LoadingSpinner /> : <>{filteredPosts && filteredPosts?.length > 0 ? <PostsList posts={filteredPosts ?? []} /> : <NoPostsFound />}</>}
+      <Separator.Root className="my-[50px] bg-shadow data-[orientation=horizontal]:h-px data-[orientation=vertical]:h-full data-[orientation=horizontal]:w-full data-[orientation=vertical]:w-px" />
+      {isFetching ? <OverlaySpinner /> : <>{filteredPosts && filteredPosts?.length > 0 ? <PostsList posts={filteredPosts ?? []} /> : <NoPostsFound />}</>}
     </div>
   );
 };
