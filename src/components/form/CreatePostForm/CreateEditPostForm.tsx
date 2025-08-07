@@ -3,8 +3,8 @@
 import { Form } from 'radix-ui';
 import FormInputField from '@/components/inputs/controlled/FormInputField';
 import { useForm } from 'react-hook-form';
-import { CreateEditPostFormType } from '@/components/forms/CreatePostForm/CreateEditPostFormType';
-import { createEditPostFormSchema } from '@/components/forms/CreatePostForm/createEditPostFormSchema';
+import { CreateEditPostFormType } from '@/components/form/CreatePostForm/CreateEditPostFormType';
+import { createEditPostFormSchema } from '@/components/form/CreatePostForm/createEditPostFormSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Button from '@/components/core/Button/Button';
 import { useOverlayLoading } from '@/hooks/useOverlayLoading';

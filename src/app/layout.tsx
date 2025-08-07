@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { Theme } from '@radix-ui/themes';
-import AppLayout from '@/components/layout/AppLayout';
+import AppLayout from '@/components/layouts/AppLayout';
 import { OverlayLoadingProvider } from '@/providers/OverlayLoadingProvider';
 import QueryProvider from '@/providers/QueryProvider';
 import { AuthProvider } from '@/providers/AuthProvider';

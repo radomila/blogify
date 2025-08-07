@@ -3,9 +3,9 @@
 import { Form } from 'radix-ui';
 import FormInputField from '@/components/inputs/controlled/FormInputField';
 import { useForm } from 'react-hook-form';
-import { SignUpFormType } from '@/components/forms/SignUpForm/signUpFormType';
+import { SignUpFormType } from '@/components/form/SignUpForm/signUpFormType';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { signUpFormSchema } from '@/components/forms/SignUpForm/signUpFormSchema';
+import { signUpFormSchema } from '@/components/form/SignUpForm/signUpFormSchema';
 import { useOverlayLoading } from '@/hooks/useOverlayLoading';
 import PasswordInputField from '@/components/inputs/controlled/PasswordInputField';
 import { useRouter } from 'next/navigation';

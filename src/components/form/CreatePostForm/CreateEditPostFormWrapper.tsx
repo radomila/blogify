@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getPostById } from '@/services/PostService';
 import OverlaySpinner from '@/components/core/OverlayLoading/OverlaySpinner';
 import ErrorAlert from '@/components/core/ErrorAlert';
-import CreateEditPostForm from '@/components/forms/CreatePostForm/CreateEditPostForm';
+import CreateEditPostForm from '@/components/form/CreatePostForm/CreateEditPostForm';
 
 interface Props {
   postId?: string;

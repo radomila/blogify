@@ -2,7 +2,7 @@
 
 import FormInputField from '@/components/inputs/controlled/FormInputField';
 import { UseFormReturn } from 'react-hook-form';
-import { UploadImageFormType } from '@/components/forms/UploadImageForm/UploadImageFormType';
+import { UploadImageFormType } from '@/components/form/UploadImageForm/UploadImageFormType';
 import { useState } from 'react';
 import ErrorAlert from '@/components/core/ErrorAlert';
 import FormFileInputField from '@/components/inputs/controlled/FormFileInputField';

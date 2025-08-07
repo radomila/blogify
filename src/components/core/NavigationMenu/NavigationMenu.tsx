@@ -3,7 +3,7 @@
 import { NavigationMenu as RadixNavigationMenu } from 'radix-ui';
 import { clsx } from 'clsx';
 import Button from '@/components/core/Button/Button';
-import NavigationMenuList from '@/components/layout/NavigationMenu/NavigationMenuList';
+import NavigationMenuList from '@/components/core/NavigationMenu/NavigationMenuList';
 import * as React from 'react';
 
 interface Props {

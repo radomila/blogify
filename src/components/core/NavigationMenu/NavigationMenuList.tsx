@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { HomeIcon, PersonIcon } from '@radix-ui/react-icons';
 import { useAuth } from '@/hooks/useAuth';
 import { clsx } from 'clsx';
-import UserMenu from '@/components/layout/UserMenu';
+import UserMenu from '@/components/layouts/UserMenu';
 import Button from '@/components/core/Button/Button';
 
 interface Props {
