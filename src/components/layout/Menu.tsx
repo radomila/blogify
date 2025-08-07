@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Logo from '@/components/layouts/Logo';
+import Logo from '@/components/layout/Logo';
 import NavigationMenu from '@/components/core/NavigationMenu/NavigationMenu';
 import Link from 'next/link';
 import Button from '@/components/core/Button/Button';

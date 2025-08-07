@@ -2,8 +2,8 @@
 
 import ProtectedRoute from '@/components/core/ProtectedRoute';
 import { useParams } from 'next/navigation';
-import { CreateEditPostFormWrapper } from '@/components/form/CreatePostForm/CreateEditPostFormWrapper';
-import BlogLayout from '@/components/layouts/BlogLayout';
+import { CreateEditPostFormWrapper } from '@/components/forms/CreatePostForm/CreateEditPostFormWrapper';
+import BlogLayout from '@/components/layout/BlogLayout';
 
 const EditPost = () => {
   const { id } = useParams<{ id: string }>();

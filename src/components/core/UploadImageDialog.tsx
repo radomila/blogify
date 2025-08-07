@@ -1,10 +1,10 @@
 import { AlertDialog as RadixAlertDialog, Form } from 'radix-ui';
 import Button from '@/components/core/Button/Button';
-import UploadImageForm from '@/components/form/UploadImageForm/UploadImageForm';
+import UploadImageForm from '@/components/forms/UploadImageForm/UploadImageForm';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { uploadImageFormSchema } from '@/components/form/UploadImageForm/uploadImageFormSchema';
-import { UploadImageFormType } from '@/components/form/UploadImageForm/UploadImageFormType';
+import { uploadImageFormSchema } from '@/components/forms/UploadImageForm/uploadImageFormSchema';
+import { UploadImageFormType } from '@/components/forms/UploadImageForm/UploadImageFormType';
 
 interface Props {
   open: boolean;

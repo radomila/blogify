@@ -2,7 +2,7 @@
 
 import { ReactNode } from 'react';
 import { useAuth } from '@/hooks/useAuth';
-import Menu from '@/components/layouts/Menu';
+import Menu from '@/components/layout/Menu';
 import OverlayLoadingWrapper from '@/components/core/OverlayLoading/OverlayLoadingWrapper';
 import '../../app/globals.css';
 

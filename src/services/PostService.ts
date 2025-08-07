@@ -1,7 +1,7 @@
 import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, orderBy, query, updateDoc, where } from '@firebase/firestore';
 import { firebaseDb } from '@/clients/firebase';
 import { Post } from '@/types/posts';
-import { CreateEditPostFormType } from '@/components/form/CreatePostForm/CreateEditPostFormType';
+import { CreateEditPostFormType } from '@/components/forms/CreatePostForm/CreateEditPostFormType';
 import { getAuth } from 'firebase/auth';
 
 const COLLECTION_NAME = 'posts';

@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import SignUpForm from '@/components/form/SignUpForm/SignUpForm';
-import AuthLayout from '@/components/layouts/AuthLayout';
+import SignUpForm from '@/components/forms/SignUpForm/SignUpForm';
+import AuthLayout from '@/components/layout/AuthLayout';
 
 const SignUp = () => {
   return (

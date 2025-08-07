@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import SignInForm from '@/components/form/SignInForm/SignInForm';
-import AuthLayout from '@/components/layouts/AuthLayout';
+import SignInForm from '@/components/forms/SignInForm/SignInForm';
+import AuthLayout from '@/components/layout/AuthLayout';
 
 const SignIn = () => {
   return (

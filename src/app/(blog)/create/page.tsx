@@ -1,8 +1,8 @@
 'use client';
 
 import ProtectedRoute from '@/components/core/ProtectedRoute';
-import BlogLayout from '@/components/layouts/BlogLayout';
-import CreateEditPostForm from '@/components/form/CreatePostForm/CreateEditPostForm';
+import BlogLayout from '@/components/layout/BlogLayout';
+import CreateEditPostForm from '@/components/forms/CreatePostForm/CreateEditPostForm';
 
 const CreatePost = () => {
   return (
