@@ -33,7 +33,7 @@ const NavigationMenuList = ({ setIsNavigationMenuOpen }: Props) => {
       )}
       <RadixNavigationMenu.Item>
         <Link
-          href="/public"
+          href="/"
           onClick={onNavMenuItemClick}
           className="flex items-start gap-4 transition-colors duration-300 hover:text-primary"
         >
